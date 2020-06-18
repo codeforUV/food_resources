@@ -1,0 +1,2 @@
+class FoodAccessPoint < ApplicationRecord
+end
