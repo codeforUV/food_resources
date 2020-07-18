@@ -22,3 +22,17 @@ Things you may want to cover:
 - Deployment instructions
 
 - ...
+
+## Wireframe Designs
+
+### List view
+![Envoy Web](lib/wireframes/list.png)
+
+### Details view
+![Envoy Web](lib/wireframes/details.png)
+
+### Menu
+![Envoy Web](lib/wireframes/menu.png)
+
+### Form
+![Envoy Web](lib/wireframes/form.png)
