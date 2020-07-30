@@ -26,8 +26,17 @@ Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade bas
 - Start server: `rails s`
 - Visit `localhost:3000` to see the app
 
+### Running tests
+TBD
+
+### Tailwind CSS
+We are using [Tailwind CSS](https://tailwindcss.com/) for our CSS styles. Check out their [documentation](https://tailwindcss.com/docs/) for more information on how to use it.
+
 ### Deployment
-- This app is hosted on Heroku. Merging PRs to the `master` branch triggers an auto-deploy
+This app is hosted on [Heroku](https://www.heroku.com). Merging pull requests to the `master` branch triggers an auto-deploy.
 
 ## Wireframe Designs
-Wireframe designs can be found in [lib/wireframes](lib/wireframes)
+Wireframe designs can be found in [lib/wireframes](lib/wireframes).
+
+## Contributing
+This is an all volunteer-run project, and pull requests are very welcome! Check out our [issues](https://github.com/codeforUV/food_resources/issues) for a list of tasks that need contributions. Join the [Code for UV Slack](https://join.slack.com/t/codeforuv/shared_invite/zt-er1lyzw6-o3YKylqiImsnMaQ_bBnS8w) to ask questions and connect with other volunteers.
