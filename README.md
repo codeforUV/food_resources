@@ -7,6 +7,7 @@ This is a project of [Code for UV](http://www.codeforuv.org/) in partnership wit
 Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade based in the Upper Valley region of New Hampshire and Vermont.The Upper Valley is a rural area, and many families live in a food desert, meaning they are 10 miles or more away from food, especially fresh produce. Our app aims to support Little Rivers' goal of increasing food access for residents of this region by producing an online guide to local food resources that is up-to-date, searchable, mobile-friendly, and offline-accessible.
 
 ## Developer Setup
+This is assuming that you are running this on a Mac. If you are on a Windows machine, you may want to first install WSL2 (Windows Subsystem for Linux 2), and then you should be able to follow these steps.
 
 ### Prerequisites
 - [Ruby](https://ruby-doc.org/) 2.6.5
