@@ -41,3 +41,6 @@ Wireframe designs can be found in [lib/wireframes](lib/wireframes).
 
 ## Contributing
 This is an all volunteer-run project, and pull requests are very welcome! Check out our [issues](https://github.com/codeforUV/food_resources/issues) for a list of tasks that need contributions. Join the [Code for UV Slack](https://join.slack.com/t/codeforuv/shared_invite/zt-er1lyzw6-o3YKylqiImsnMaQ_bBnS8w) to ask questions and connect with other volunteers.
+
+### Code of Conduct
+This project and related activities are subject to a [Code of Conduct and Anti-Harrassment Policy](https://github.com/codeforUV/code_of_conduct/blob/master/code_of_conduct.md). Please familiarize yourself with it before making contributions.
