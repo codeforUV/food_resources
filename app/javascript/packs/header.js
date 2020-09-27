@@ -1,7 +1,17 @@
 document.addEventListener("turbolinks:load", function () {
   // Handle menu trigger menu
   document.getElementById("triggerMenu").addEventListener("click", triggerMenu);
+  // Handle search bar
+  document.getElementById("searchBar").addEventListener("input", search);
 });
+
+/**
+ * Function that handles the search bar
+ */
+function search() {
+  console.log("Hello World !")
+}
+
 
 /**
  * Function that handles menu trigger
