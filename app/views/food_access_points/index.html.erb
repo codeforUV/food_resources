@@ -1,16 +1,4 @@
 <%= render "header" %>
-<% @food_access_points.each do |food_access_point| %>
-  <div class="p-3">
-    <h1><%= food_access_point.name %></h1>
-    <address>
-    <%= food_access_point.address %>
-    <br>
-    <%= food_access_point.town %>,
-    <%= food_access_point.state %>
-    <%= food_access_point.zip %>
-    <address>
-      Hours today:
-      <br>
-    <%= food_access_point.phone_number %>
-  </div>
-<% end %>
+<div id="list_food_access_points">
+  <%= render partial: "food_access_point", collection: @food_access_points %>
+</div>

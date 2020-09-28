@@ -9,9 +9,22 @@ document.addEventListener("turbolinks:load", function () {
  * Function that handles the search bar
  */
 function search() {
-  console.log("Hello World !")
-}
+  let search_term = document.getElementById("searchBar").value;
 
+  if (search_term != "") {
+    let xhr = new XMLHttpRequest();
+    let params = "search_term=" + search_term;
+
+    xhr.open("GET", "/food_access_points/search.js?" + params, true);
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        // Update content with the new list of Food Access Points
+        document.getElementById("list_food_access_points").innerHTML = xhr.response;
+      }
+    }
+    xhr.send(null);
+  }
+}
 
 /**
  * Function that handles menu trigger
@@ -39,13 +52,13 @@ function triggerMenu() {
     svg.setAttribute("d", openSVG);
   }
   return true;
-};
+}
 
 /**
  * Function that replaces a "oldClass" by a "newClass" in a "classList"
- * @param {*} oldClass 
- * @param {*} newClass 
- * @param {*} classList 
+ * @param {*} oldClass
+ * @param {*} newClass
+ * @param {*} classList
  */
 function replaceClass(oldClass, newClass, classList) {
   classList.remove(oldClass);
