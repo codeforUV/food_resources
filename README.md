@@ -22,9 +22,10 @@ This is assuming that you are running this on a Mac. If you are on a Windows mac
   - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@12.3`
 
 ### Running the app locally
-- Install dependencies: `bundle install`
-- Setup database: `rails db:setup`
-- Start server: `rails s`
+- Install Ruby dependencies: `bundle install`
+- Install JavaScript dependencies: `yarn install`
+- Setup database: `bin/rails db:setup`
+- Start server: `bin/rails s`
 - Visit `localhost:3000` to see the app
 
 ### Running tests
