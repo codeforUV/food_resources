@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_223355) do
+ActiveRecord::Schema.define(version: 2020_10_06_073712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2020_06_18_223355) do
     t.string "website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "day"
+    t.string "open_hours"
+    t.string "close_hours"
+    t.bigint "food_access_point_id"
+    t.index ["food_access_point_id"], name: "index_schedules_on_food_access_point_id"
   end
 
 end
