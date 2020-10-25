@@ -42,3 +42,15 @@ function replaceClass(oldClass, newClass, classList) {
   classList.add(newClass);
   return classList;
 }
+
+document.addEventListener('turbolins:load', function() {
+
+  document.getElementById('mobile-menu').addEventListener('click', toggleMenu);
+});
+
+funciton toggleMenu() {
+  if this.classList.contains('hidden') {
+    this.className.replaceClass('hidden', 'block', this.className)
+  }
+}
+
