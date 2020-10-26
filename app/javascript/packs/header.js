@@ -1,10 +1,24 @@
+// Adds toggle to mobile menu
+
 document.addEventListener("turbolinks:load", function () {
-  document.getElementById("mobile-button").addEventListener("click", (e) => {
+  document.getElementById("mobile-button").addEventListener("click", () => {
     let mM = document.getElementById("mobile-menu");
-    if (mM.style.display == "none") {
-      mM.style.display = "block";
+    let mIO = document.getElementById("menu-icon-open");
+    let mIC = document.getElementById("menu-icon-closed");
+    if (mM.classList.contains("hidden")) {
+      mM.classList.remove("hidden");
+      mM.classList.add("block");
+      mIO.classList.add("block");
+      mIO.classList.remove("hidden");
+      mIC.classList.add("hidden");
+      mIC.classList.remove("block");
     } else {
-      mM.style.display = "none";
+      mM.classList.add("hidden");
+      mM.classList.remove("block");
+      mIO.classList.add("hidden");
+      mIO.classList.remove("block");
+      mIC.classList.add("block");
+      mIC.classList.remove("hidden");
     }
   });
 });
