@@ -1,46 +1,27 @@
-<%# <%= render "header" %1> %>
-<%# <% @food_access_points.each do |food_access_point| %1> %>
-<%#   <div class="p-3"> %>
-<%#     <h1><%= food_access_point.name %1></h1> %>
-<%#     <address> %>
-<%#       <%= food_access_point.address %1> %>
-<%#       <br> %>
-<%#       <%= food_access_point.town %1>, %>
-<%#       <%= food_access_point.state %1> %>
-<%#       <%= food_access_point.zip %1> %>
-<%#       <address> %>
-<%#         Hours today: %>
-<%#         <br> %>
-<%#         <%= food_access_point.phone_number %1> %>
-<%#   </div> %>
-<%# <% end %1> %>
-
-
-
 <%= render "header" %>
 <div class="mt-4">
-<ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3">
-<% @food_access_points.each do |food_access_point| %>
-<li class="col-span-1 px-6 py-4 bg-gray-400">
-  <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider"><%= food_access_point.name %></h3>
-  <div class="">
-    <div class="bg-red-500 w-1/4 h-24 p-4 float-right">
-      <p class="text-white text-center">MAP</>
-        HERE</p>
-    </div>
-    <div>
-      <address class="not-italic mb-2">
-      <%= food_access_point.address %>
-        <br>
-      <%= food_access_point.town %>,
-      <%= food_access_point.state %>
-      <%= food_access_point.zip %>
-      </address>
-      <span class="mb-4"><%= food_access_point.phone_number %></span><br>
-      <span>Hours today: 9:00 a.m - 2:00 p.m.</span>
-    </div>
-  </div>
-</li>
-<% end %>
-</ul>
+  <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3">
+    <% @food_access_points.each do |food_access_point| %>
+      <li class="col-span-1 px-6 py-4 bg-gray-400">
+        <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider"><%= food_access_point.name %></h3>
+        <div class="">
+          <div class="bg-red-500 w-1/4 h-24 p-4 float-right">
+            <p class="text-white text-center">MAP</>
+              HERE</p>
+          </div>
+          <div>
+            <address class="not-italic mb-2">
+              <%= food_access_point.address %>
+              <br>
+              <%= food_access_point.town %>,
+              <%= food_access_point.state %>
+              <%= food_access_point.zip %>
+            </address>
+            <span class="mb-4"><%= food_access_point.phone_number %></span><br>
+            <span>Hours today: 9:00 a.m - 2:00 p.m.</span>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
