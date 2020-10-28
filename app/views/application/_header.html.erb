@@ -12,12 +12,24 @@
       </button>
     </div>
   </div>
+  <% if user_signed_in? %>
   <div id="links" class="flex hidden bg-white">
     <div class="px-2 pt-2 pb-4 w-1/2 bg-gray-500">
       <a href="/" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Home</a>
       <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">About</a>
-      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Login</a>
       <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">How to use</a>
+      <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600" %>
     </div>
   </div>
+<% else %>
+  <div id="links" class="flex hidden bg-white">
+    <div class="px-2 pt-2 pb-4 w-1/2 bg-gray-500">
+      <a href="/" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Home</a>
+      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">About</a>
+      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">How to use</a>
+      <a href="/users/sign_in" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Login</a>
+      <a href="/users/sign_up" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Register</a>
+    </div>
+  </div>
+<% end %>
 </header>

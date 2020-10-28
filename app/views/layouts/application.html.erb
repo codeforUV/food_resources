@@ -15,6 +15,16 @@
 </head>
 
 <body>
+  <% if notice %>
+    <div class="bg-yellow-500 p-4 text-gray-800 text-center">
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="bg-red-500 p-4 text-gray-800 text-center">
+      <%= alert %>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
 
