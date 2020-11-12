@@ -18,6 +18,7 @@ csv.each do |row|
   fap.phone_number = row["phone_number"]
   fap.website = row["website"]
   fap.website = "http://cnn.com" unless !fap.website.blank?
+  fap.user_id = 1;
   fap.save
   puts fap.name + " saved." 
 end
