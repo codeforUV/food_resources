@@ -4,7 +4,7 @@ document.addEventListener("turbolinks:load", function () {
   document.getElementById("mobile-button").addEventListener("click", () => {
     let mobileMenu = document.getElementById("mobile-menu");
     let menuIconOpen = document.getElementById("menu-icon-open");
-    let mIconClosed = document.getElementById("menu-icon-closed");
+    let menuIconClosed = document.getElementById("menu-icon-closed");
     if (mobileMenu.classList.contains("hidden")) {
       mobileMenu.classList.remove("hidden");
       mobileMenu.classList.add("block");
