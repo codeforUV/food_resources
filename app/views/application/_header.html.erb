@@ -1,35 +1,16 @@
 <%= javascript_pack_tag 'header' %>
 <header class="bg-gray-500">
-  <div class="flex items-center justify-between px-4 py-3">
-    <div>
-      <span></span>
-    </div>
-    <div>
-      <button id="triggerMenu" type="button" class="block hover:text-white focus:text-white focus:outline-none">
-        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-          <path id="menuIcon" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-        </svg>
-      </button>
-    </div>
-  </div>
-  <% if user_signed_in? %>
-  <div id="links" class="flex hidden bg-white">
-    <div class="px-2 pt-2 pb-4 w-1/2 bg-gray-500">
-      <a href="/" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Home</a>
-      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">About</a>
-      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">How to use</a>
-      <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600" %>
-    </div>
-  </div>
-<% else %>
-  <div id="links" class="flex hidden bg-white">
-    <div class="px-2 pt-2 pb-4 w-1/2 bg-gray-500">
-      <a href="/" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Home</a>
-      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">About</a>
-      <a href="/" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">How to use</a>
-      <a href="/users/sign_in" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Login</a>
-      <a href="/users/sign_up" class="block mt-1 px-2 py-1 text-white font-semibold rounded hover:bg-gray-600">Register</a>
-    </div>
-  </div>
-<% end %>
+
+
+  <!--
+    Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+    Read the documentation to get started: https://tailwindui.com/documentation
+  -->
+  <nav class="bg-gray-600">
+    <% if user_signed_in? %>
+      <%= render "logged_in_nav" %>
+    <% else %>
+      <%= render "not_logged_in_nav" %>
+    <% end %>
+  </nav>
 </header>
