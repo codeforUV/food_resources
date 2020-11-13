@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :users do 
     resources :food_access_points
   end
+
+  resources :food_access_points
+
+  
 end
