@@ -9,7 +9,8 @@
         <div class="">
           <div class="w-1/4 float-right">
           <% if current_user && current_user.id == food_access_point.user_id %>
-            <%= link_to "EDIT", edit_user_food_access_point_path(food_access_point.id, current_user.id) %> | DELETE
+            <%= link_to "EDIT", edit_user_food_access_point_path(food_access_point.id, current_user.id) %> | 
+            <%= link_to "DELETE", user_food_access_point_path(current_user, food_access_point), method: :delete,  data: { confirm: "Are you sure?" } %>
           <% end %> 
           <div class="bg-yellow-200 border-solid border-2 border-yellow-500 p-4 h-24">
             <p class="text-black-500 text-center">MAP HERE</p>

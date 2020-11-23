@@ -41,7 +41,7 @@ class FoodAccessPointsController < ApplicationController
   def destroy
     @food_access_point = FoodAccessPoint.find(params[:id])
     @food_access_point.destroy
-    redirect_to root
+    redirect_to root_path
   end
 
   private 
