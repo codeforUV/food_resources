@@ -2,7 +2,6 @@
 
 <div class="container mx-auto">
   <h2 class="mx-auto text-center my-8 text-2xl">Create New Food Access Point</h2>
-  <%= render "food_access_points_form" %>
+  <%= render partial: "food_access_points_form", locals: {submit_message: "Create New Access Point"} %>
 
 </div>
-<% end %>

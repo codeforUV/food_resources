@@ -17,6 +17,11 @@ class FoodAccessPointsController < ApplicationController
   def create
     Rails.logger.debug params.inspect
     @food_access_point = current_user.food_access_points.build(food_access_point_params(:name, :address, :town, :state, :zip, :phone_number, :website))
+    if @food_access_point.save 
+      redirect_to food_access_point_path(@food_access_point)
+    else
+      render 'edit'
+    end
   end
 
   def edit
@@ -24,7 +29,13 @@ class FoodAccessPointsController < ApplicationController
   end
 
   def update
-
+    @food_access_point = FoodAccessPoint.find(params[:id])
+    @food_access_point.update(food_access_point_params(:name, :address, :town, :state, :zip, :phone_number, :website))
+    if @food_access_point.save
+      redirect_to food_access_point_path(@food_access_point)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

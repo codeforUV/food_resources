@@ -7,9 +7,13 @@
           <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider hover:text-red-700"><%= food_access_point.name %></h3>
         <% end%>
         <div class="">
-          <div class="bg-yellow-200 border-solid border-2 border-yellow-500 w-1/4 h-24 p-4 float-right">
-            <p class="text-black-500 text-center">MAP</>
-              HERE</p>
+          <div class="w-1/4 float-right">
+          <% if current_user && current_user.id == food_access_point.user_id %>
+            <%= link_to "EDIT", edit_user_food_access_point_path(food_access_point.id, current_user.id) %> | DELETE
+          <% end %> 
+          <div class="bg-yellow-200 border-solid border-2 border-yellow-500 p-4 h-24">
+            <p class="text-black-500 text-center">MAP HERE</p>
+          </div>
           </div>
           <div>
             <address class="not-italic mb-2">
