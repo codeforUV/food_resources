@@ -16,7 +16,7 @@ class FoodAccessPointsController < ApplicationController
 
   def create
     Rails.logger.debug params.inspect
-    @food_access_point = current_user.food_access_points.build(food_access_point_params(:name, :address, :town, :state, :zip, :phone_number, :website))
+    @food_access_point = current_user.food_access_points.build(food_access_point_create_params(params))
     if @food_access_point.save 
       redirect_to food_access_point_path(@food_access_point)
     else
@@ -30,8 +30,9 @@ class FoodAccessPointsController < ApplicationController
 
   def update
     @food_access_point = FoodAccessPoint.find(params[:id])
-    @food_access_point.update(food_access_point_params(:name, :address, :town, :state, :zip, :phone_number, :website))
-    if @food_access_point.save
+    @food_access_point.update(food_access_point_edit_params(params))
+    if @food_access_point.save 
+      puts "It saved?"
       redirect_to food_access_point_path(@food_access_point)
     else
       render 'edit'
@@ -46,9 +47,12 @@ class FoodAccessPointsController < ApplicationController
 
   private 
 
-  def food_access_point_params(*args) 
-    params.require(:food_access_point).permit(*args)
+  def food_access_point_edit_params(fap_params) 
+    fap_params.require(:food_access_point).permit(:name, :address, :town, :state, :zip, :phone_number, :website)
   end
 
+  def food_access_point_create_params(fap_params) 
+    fap_params.require(:food_access_point).permit(:name, :address, :town, :state, :zip, :phone_number, :website)
+  end
 
 end
