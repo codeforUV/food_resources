@@ -5,11 +5,18 @@
 #
 require 'csv'
 
-# First, read and parse the file.
+# Create a demo user
+
+user = User.create(email: "a@me.com", password: "123456")
+
+puts user.email + " created."
+
+# For Food Acces Points, we use a csv file.  First step, read and parse the file.
 csv = CSV.parse(File.read(Rails.root.join('db', 'seeds.csv')), headers: true)
 
+# Create Food Access Points assigned to our user.
 csv.each do |row|
-  fap = FoodAccessPoint.new
+  fap = user.food_access_points.build
   fap.address = row["address"]
   fap.town = row["town"]
   fap.state = row["state"]

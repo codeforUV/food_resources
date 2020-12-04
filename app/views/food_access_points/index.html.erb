@@ -3,11 +3,18 @@
   <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3">
     <% @food_access_points.each do |food_access_point| %>
       <li class="col-span-1 px-6 py-4 bg-gray-400">
-        <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider"><%= food_access_point.name %></h3>
+        <%= link_to(food_access_point) do %>
+          <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider hover:text-red-700"><%= food_access_point.name %></h3>
+        <% end%>
         <div class="">
-          <div class="bg-red-500 w-1/4 h-24 p-4 float-right">
-            <p class="text-white text-center">MAP</>
-              HERE</p>
+          <div class="w-1/4 float-right">
+          <% if current_user && current_user.id == food_access_point.user_id %>
+            <%= link_to "EDIT", edit_user_food_access_point_path(food_access_point.id, current_user.id) %> | 
+            <%= link_to "DELETE", user_food_access_point_path(current_user, food_access_point), method: :delete,  data: { confirm: "Are you sure?" } %>
+          <% end %> 
+          <div class="bg-yellow-200 border-solid border-2 border-yellow-500 p-4 h-24">
+            <p class="text-black-500 text-center">MAP HERE</p>
+          </div>
           </div>
           <div>
             <address class="not-italic mb-2">
