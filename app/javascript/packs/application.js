@@ -8,7 +8,7 @@ require('turbolinks').start();
 require('@rails/activestorage').start();
 require('channels');
 
-import '../stylesheets/application.css';
+import '../stylesheets/application.scss';
 
 document.addEventListener("turbolinks:load", function () {
   document.getElementById("mobile-button").addEventListener("click", () => {
