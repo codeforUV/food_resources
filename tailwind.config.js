@@ -1,8 +1,13 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './src/**/*.html',
+  ],
   theme: {
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ],
 }
