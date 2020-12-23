@@ -1,4 +1,7 @@
 {
+  "engines" : {
+    "node" : ">=12.13.0"
+  },
   "name": "food_resources",
   "private": true,
   "dependencies": {
