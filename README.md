@@ -15,7 +15,7 @@ This is assuming that you are running this on a Mac. If you are on a Windows mac
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
   - If needed, update version: `gem update --system`
-- [Node](https://nodejs.org/en/download/) 10.15.3
+- [Node](https://nodejs.org/en/download/) 12.13.0
 - [Yarn](https://classic.yarnpkg.com/en/docs/install)
   - Recommend installing via [homebrew](https://brew.sh/): `brew install yarn`
 - [PostgreSQL](https://www.postgresql.org/) 12.3
