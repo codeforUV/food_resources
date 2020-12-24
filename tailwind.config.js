@@ -1,13 +1,11 @@
 module.exports = {
   purge: [
-    // './src/**/*.html',
+    './app/**/*.html',
+    './app/**/*.erb',
   ],
   theme: {
     extend: {},
   },
   variants: {},
-  plugins: [
-    // require('tailwindcss'),
-    // require('autoprefixer'),
-  ],
+  plugins: [],
 }
