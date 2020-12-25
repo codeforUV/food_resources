@@ -45,3 +45,6 @@ This is an all volunteer-run project, and pull requests are very welcome! Check 
 
 ### Code of Conduct
 This project and related activities are subject to a [Code of Conduct and Anti-Harrassment Policy](https://github.com/codeforUV/code_of_conduct/blob/master/code_of_conduct.md). Please familiarize yourself with it before making contributions.
+
+### Special Thanks
+Special thanks to [Tailwind Labs](https://github.com/tailwindlabs) for donating a license of [Tailwind UI](https://tailwindui.com) to this project!
