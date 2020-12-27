@@ -10,7 +10,7 @@ Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade bas
 This is assuming that you are running this on a Mac. If you are on a Windows machine, you may want to first install WSL2 (Windows Subsystem for Linux 2), and then you should be able to follow these steps.
 
 ### Prerequisites
-- [Ruby](https://ruby-doc.org/) 2.7.2
+- [Ruby](https://ruby-doc.org/) 3.0.0
 - [Bundler](https://bundler.io/) 2.2.3: `gem install bundler`
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
