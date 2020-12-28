@@ -3,11 +3,74 @@
     Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
     Read the documentation to get started: https://tailwindui.com/documentation
   -->
-  <nav class="bg-gray-600">
-    <% if user_signed_in? %>
-      <%= render "logged_in_nav" %>
-    <% else %>
-      <%= render "not_logged_in_nav" %>
-    <% end %>
+  <nav data-controller="toggle" class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button data-action="toggle#toggle" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false">
+            <!-- Icon when menu is closed. -->
+            <!--
+              Heroicon name: menu
+
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg data-toggle-target="toggle" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Icon when menu is open. -->
+            <!--
+              Heroicon name: x
+
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg data-toggle-target="toggle" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex-shrink-0">
+            <%= image_tag('UVBrigadeLogo.png', class: 'block lg:hidden h-8 w-auto', alt: 'UV Brigade logo') %>
+            <%= image_tag('UVBrigadeLogo.png', class: 'hidden lg:block h-8 w-auto', alt: 'UV Brigade logo') %>
+          </div>
+          <div class="hidden sm:block sm:ml-6">
+            <div class="flex">
+              <a href="/" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
+              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">How to use</a>
+              <% if user_signed_in? %>
+                <%= link_to "Create FAP", new_user_food_access_point_path(current_user), class: "ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"%>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+              <% else %>
+                <%= link_to 'Login', new_user_session_path, class: "ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+                <%= link_to "Sign Up", new_user_registration_path, class: "ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--
+      Mobile menu, toggle classes based on menu state.
+
+      Menu open: "block", Menu closed: "hidden"
+    -->
+    <div data-toggle-target="toggle" class="hidden sm:hidden">
+      <div class="px-2 pt-2 pb-3">
+        <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
+        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">How to use</a>
+        <% if user_signed_in? %>
+          <%= link_to "Create FAP", new_user_food_access_point_path(current_user), class: "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+        <% end %>
+      </div>
+    </div>
   </nav>
 </header>
