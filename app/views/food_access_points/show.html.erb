@@ -1,5 +1,10 @@
 <%= render "header" %>
 
+<% if current_user&.id == @food_access_point.user_id %>
+  <%= link_to "EDIT", edit_user_food_access_point_path(current_user.id, food_access_point.id) %> | 
+  <%= link_to "DELETE", user_food_access_point_path(current_user, food_access_point), method: :delete,  data: { confirm: "Are you sure?" } %>
+<% end %> 
+
 <div class="flex mt-4">
     <div class="w-full text-center">
         <h1 class="font-semibold text-2xl text-gray-800"><%= @food_access_point.name %></h1>
