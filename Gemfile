@@ -34,6 +34,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 4.0.2'
+  # Installing this because we're using Ruby 3. We can remove rexml after rspec-rails has released
+  # the branch that includes this as a dependency. See https://github.com/rspec/rspec-rails/issues/2441#issuecomment-756621403
+  gem 'rexml' 
 end
 
 group :development do
