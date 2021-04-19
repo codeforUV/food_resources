@@ -10,12 +10,12 @@ Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade bas
 This is assuming that you are running this on a Mac. If you are on a Windows machine, you may want to first install WSL2 (Windows Subsystem for Linux 2), and then you should be able to follow these steps.
 
 ### Prerequisites
-- [Ruby](https://ruby-doc.org/) 2.6.5
-- [Bundler](https://bundler.io/) 2.1.4: `gem install bundler`
+- [Ruby](https://ruby-doc.org/) 3.0.0
+- [Bundler](https://bundler.io/) 2.2.3: `gem install bundler`
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
   - If needed, update version: `gem update --system`
-- [Node](https://nodejs.org/en/download/) 10.15.3
+- [Node](https://nodejs.org/en/download/) 12.13.0
 - [Yarn](https://classic.yarnpkg.com/en/docs/install)
   - Recommend installing via [homebrew](https://brew.sh/): `brew install yarn`
 - [PostgreSQL](https://www.postgresql.org/) 12.3
@@ -45,3 +45,6 @@ This is an all volunteer-run project, and pull requests are very welcome! Check 
 
 ### Code of Conduct
 This project and related activities are subject to a [Code of Conduct and Anti-Harrassment Policy](https://github.com/codeforUV/code_of_conduct/blob/master/code_of_conduct.md). Please familiarize yourself with it before making contributions.
+
+### Special Thanks
+Special thanks to [Tailwind Labs](https://github.com/tailwindlabs) for donating a license of [Tailwind UI](https://tailwindui.com) to this project!
