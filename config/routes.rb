@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :food_access_points, only: [:create, :new, :edit, :update, :destroy]
   end
+  
+  # resources :user do
+  #   resources :food_access_points, only: [:create, :new, :edit, :update, :destroy]
+  # end
+
 end
