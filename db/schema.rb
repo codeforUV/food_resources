@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_225244) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.string "email"
     t.text "income_qualifications"
     t.text "required_docs"
     t.text "typically_available_items"

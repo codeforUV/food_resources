@@ -49,14 +49,14 @@ class FoodAccessPointsController < ApplicationController
 
   def food_access_point_edit_params 
     params.require(:food_access_point).permit(
-      :name, :address, :town, :state, :zip, :phone_number, :website, :income_qualifications, :required_docs,
+      :name, :address, :town, :state, :zip, :phone_number, :email, :website, :income_qualifications, :required_docs,
       :typically_available_items
     )
   end
 
   def food_access_point_create_params 
     params.require(:food_access_point).permit(
-      :name, :address, :town, :state, :zip, :phone_number, :website, :income_qualifications, :required_docs,
+      :name, :address, :town, :state, :zip, :phone_number, :email, :website, :income_qualifications, :required_docs,
       :typically_available_items
     )
   end
