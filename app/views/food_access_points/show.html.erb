@@ -12,32 +12,32 @@
 <div class="flex mt-2 pl-5">
     <div class="font-semibold text-2xl text-gray-800">Info</div>
 </div>
-<%= render partial: 'info', :locals => {:info_1 => @food_access_point.address.split.map(&:capitalize)*' ', :info_2 => @food_access_point.phone_number } %>
+<%= render partial: 'info', :locals => {info_1: @food_access_point.address.split.map(&:capitalize)*' ', info_2: @food_access_point.phone_number } %>
 <% complete_address = @food_access_point.town.to_s + ", " + @food_access_point.state.to_s + " " + @food_access_point.zip.to_s %>
-<%= render partial: 'info', :locals => {:info_1 => complete_address, :info_2 => "No e-mail registred." } %>
-<%= render partial: 'info', :locals => {:info_1 => "", :info_2 => @food_access_point.website } %>
+<%= render partial: 'info', :locals => {info_1: complete_address, info_2: @food_access_point.email } %>
+<%= render partial: 'info', :locals => {info_1: "", info_2: @food_access_point.website } %>
 <br>
-<%= render partial: 'info', :locals => {:info_1 => "Income qualifications", :info_2 => "..." } %>
-<%= render partial: 'info', :locals => {:info_1 => "Required documentation", :info_2 => "..." } %>
-<%= render partial: 'info', :locals => {:info_1 => "Typically available", :info_2 => "..." } %>
+<%= render partial: 'info', :locals => {info_1: "Income qualifications", info_2: @food_access_point.income_qualifications } %>
+<%= render partial: 'info', :locals => {info_1: "Required documentation", info_2: @food_access_point.required_docs } %>
+<%= render partial: 'info', :locals => {info_1: "Typically available", info_2: @food_access_point.typically_available_items } %>
 
 <div class="flex mt-5 pl-5">
     <div class="font-semibold text-2xl text-gray-800">Hours</div>
 </div>
-<%= render partial: 'info', :locals => {:info_1 => "Open now", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Monday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Tuesday", :info_2 => "Closed" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Wednesday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Thursday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Friday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Saturday", :info_2 => "Closed" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Sunday", :info_2 => "Closed" } %>
+<%= render partial: 'info', :locals => {info_1: "Open now", info_2: "" } %>
+<%= render partial: 'info', :locals => {info_1: "Monday", info_2: "9:00am - 5:00pm" } %>
+<%= render partial: 'info', :locals => {info_1: "Tuesday", info_2: "Closed" } %>
+<%= render partial: 'info', :locals => {info_1: "Wednesday", info_2: "9:00am - 5:00pm" } %>
+<%= render partial: 'info', :locals => {info_1: "Thursday", info_2: "9:00am - 5:00pm" } %>
+<%= render partial: 'info', :locals => {info_1: "Friday", info_2: "9:00am - 5:00pm" } %>
+<%= render partial: 'info', :locals => {info_1: "Saturday", info_2: "Closed" } %>
+<%= render partial: 'info', :locals => {info_1: "Sunday", info_2: "Closed" } %>
 
 <div class="flex mt-5 pl-5">
     <div class="w-1/2 font-semibold text-2xl text-gray-800">Recent arrivals</div>
     <div class="w-1/2 text-sm">Last updated 3/10/20 10:00AM</div>
 </div>
-<%= render partial: 'info', :locals => {:info_1 => "Bread", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Milk", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Canned goods", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "...", :info_2 => "" } %>
+<%= render partial: 'info', :locals => {info_1: "Bread", info_2: "" } %>
+<%= render partial: 'info', :locals => {info_1: "Milk", info_2: "" } %>
+<%= render partial: 'info', :locals => {info_1: "Canned goods", info_2: "" } %>
+<%= render partial: 'info', :locals => {info_1: "...", info_2: "" } %>
