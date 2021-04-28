@@ -2,28 +2,40 @@
 
   <%= form_for [current_user, @food_access_point] do |f| %>
     <div class="field mb-4">
-<%= f.label "Name of Food Access Point:" %>
-<%= f.text_field :name %>
+      <%= f.label "Name of Food Access Point:" %>
+      <%= f.text_field :name %>
     </div>
     <div class="field mb-4">
-<%= f.label "Street Address:" %>
-<%= f.text_field :address %>
+      <%= f.label "Street Address:" %>
+      <%= f.text_field :address %>
     </div>
     <div class="field mb-4">
-<%= f.label "Town:" %>
-<%= f.text_field :town %>
+      <%= f.label "Town:" %>
+      <%= f.text_field :town %>
     </div>
     <div class="field mb-4">
-<%= f.label "State:"%>
-<%= f.text_field :state %>
+      <%= f.label "State:"%>
+      <%= f.text_field :state %>
     </div>
     <div class="field mb-4">
-<%= f.label "Zipcode:"%>
-<%= f.text_field :zip %>
+      <%= f.label "Zipcode:"%>
+      <%= f.text_field :zip %>
     </div>
     <div class="field mb-4">
-<%= f.label "Phone:"%>
-<%= f.text_field :phone_number %>
+      <%= f.label "Phone:"%>
+      <%= f.text_field :phone_number %>
+    </div>
+    <div class="field mb-4">
+      <%= f.label "Income Qualifications:"%>
+      <%= f.text_area :income_qualifications %>
+    </div>
+    <div class="field mb-4">
+      <%= f.label "Required Documents:"%>
+      <%= f.text_area :required_docs %>
+    </div>
+    <div class="field mb-4">
+      <%= f.label "Typically Available Items:"%>
+      <%= f.text_area :typically_available_items %>
     </div>
     <div class="actions mb-8">
       <%= f.submit submit_message, class: "px-5 py-2 my-2 bg-gray-200 hover:bg-gray-800 hover:text-grat-100 rounded" %>
