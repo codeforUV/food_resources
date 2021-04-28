@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="flex justify-around mt-2">
-    <div><span class="text-gray-700">Food pantry</span></div>
+    <div><span class="text-gray-700">Food pantry [Placehold for food access point type]</span></div>
     <div><a class="text-blue-600 hover:underline" href="">Leave feedback</a></div>
 </div>
 <div class="flex mt-2 pl-5">
@@ -41,3 +41,7 @@
 <%= render partial: 'info', :locals => {info_1: "Milk", info_2: "" } %>
 <%= render partial: 'info', :locals => {info_1: "Canned goods", info_2: "" } %>
 <%= render partial: 'info', :locals => {info_1: "...", info_2: "" } %>
+
+<div class="flex mt-5 pl-5">
+  <%= link_to "Update", edit_user_food_access_point_path(current_user.id, @food_access_point.id) %>
+</div>
