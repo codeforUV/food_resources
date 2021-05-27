@@ -5,7 +5,8 @@
   "name": "food_resources",
   "private": true,
   "dependencies": {
-    "@hotwired/turbo-rails": "^7.0.0-beta.1",
+    "@hotwired/turbo": "https://github.com/hotwired/turbo/archive/dev-builds/latest.tar.gz",
+    "@hotwired/turbo-rails": "^7.0.0-beta.5",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/webpacker": "^6.0.0-beta.5",
@@ -29,12 +30,6 @@
     "presets": [
       "./node_modules/@rails/webpacker/package/babel/preset.js"
     ]
-  },
-  "browserslist": [
-    "defaults"
-  ],
-  "babel": {
-    "presets": ["./node_modules/@rails/webpacker/package/babel/preset.js"]
   },
   "browserslist": [
     "defaults"
