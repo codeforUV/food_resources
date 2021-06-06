@@ -25,8 +25,6 @@ gem 'redis', '~> 4.0'
 #
 # Use Devise for authentication
 gem 'devise'
-# Add jquery
-gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
