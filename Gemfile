@@ -13,6 +13,8 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '6.0.0.beta.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbo-rails'
+# Stimulis adds JS framework for hotwire.
+gem 'stimulus-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -60,4 +62,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "hotwire-rails", "~> 0.1.3"
