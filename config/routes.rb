@@ -10,12 +10,8 @@ Rails.application.routes.draw do
 
   resources :food_access_points, only: [:index, :show]
 
-  resources :users do
+  resources :users, only: [] do
     resources :food_access_points, only: [:create, :new, :edit, :update, :destroy]
   end
   
-  # resources :user do
-  #   resources :food_access_points, only: [:create, :new, :edit, :update, :destroy]
-  # end
-
 end
