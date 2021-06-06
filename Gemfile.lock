@@ -257,8 +257,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (~> 1.0)
-  puma (~> 4.1)
-  rails (~> 6.1.2.1)
+  puma (~> 4.3)
+  rails (~> 6.1.2)
   redis (~> 4.0)
   rexml
   rspec-rails (~> 4.0.1)
@@ -267,6 +267,7 @@ DEPENDENCIES
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
+  stimulus-rails
   turbo-rails
   tzinfo-data
   web-console (>= 3.3.0)
