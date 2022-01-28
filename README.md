@@ -4,28 +4,24 @@
 
 This is a project of [Code for UV](http://www.codeforuv.org/) in partnership with [Little Rivers Health Care](https://www.littlerivers.org/).
 
-Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade based in the Upper Valley region of New Hampshire and Vermont.The Upper Valley is a rural area, and many families live in a food desert, meaning they are 10 miles or more away from food, especially fresh produce. Our app aims to support Little Rivers' goal of increasing food access for residents of this region by producing an online guide to local food resources that is up-to-date, searchable, mobile-friendly, and offline-accessible.
+Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade based in the Upper Valley region of New Hampshire and Vermont. The Upper Valley is a rural area, and many families live in a food desert, meaning they are 10 miles or more away from food, especially fresh produce. Our app aims to support Little Rivers' goal of increasing food access for residents of this region by producing an online guide to local food resources that is up-to-date, searchable, mobile-friendly, and offline-accessible.
 
 ## Developer Setup
 This is assuming that you are running this on a Mac. If you are on a Windows machine, you may want to first install WSL2 (Windows Subsystem for Linux 2), and then you should be able to follow these steps.
 
 ### Prerequisites
-- [Ruby](https://ruby-doc.org/) 3.0.0
+- [Ruby](https://ruby-doc.org/) 3.1.0
 - [Bundler](https://bundler.io/) 2.2.3: `gem install bundler`
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
   - If needed, update version: `gem update --system`
-- [Node](https://nodejs.org/en/download/) 12.13.0
-- [Yarn](https://classic.yarnpkg.com/en/docs/install)
-  - Recommend installing via [homebrew](https://brew.sh/): `brew install yarn`
 - [PostgreSQL](https://www.postgresql.org/) 12.3
-  - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@12.3`
+  - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@13`
 
 ### Running the app locally
 - Install Ruby dependencies: `bundle install`
-- Install JavaScript dependencies: `yarn install`
 - Setup database: `bin/rails db:setup`
-- Start server: `bin/rails s`
+- Start server (and run Tailwind CSS in watch mode): `bin/dev`
 - Visit `localhost:3000` to see the app
 
 ### Running tests
