@@ -15,7 +15,7 @@ This is assuming that you are running this on a Mac. If you are on a Windows mac
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
   - If needed, update version: `gem update --system`
-- [PostgreSQL](https://www.postgresql.org/) 12.3
+- [PostgreSQL](https://www.postgresql.org/) 13
   - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@13`
 
 ### Running the app locally
