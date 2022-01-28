@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_packs_with_chunks_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 </head>
 
 <body>
@@ -23,7 +23,9 @@
       <%= alert %>
     </div>
   <% end %>
-  <%= yield %>
+    <%# <main class="container mx-auto mt-28 px-5 flex"> %>
+    <%= yield %>
+    <%# </main> %>
 </body>
 
 </html>
