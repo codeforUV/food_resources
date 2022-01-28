@@ -202,6 +202,8 @@ GEM
     stimulus-rails (1.0.2)
       railties (>= 6.0.0)
     strscan (3.0.1)
+    tailwindcss-rails (2.0.5)
+      railties (>= 6.0.0)
     thor (1.2.1)
     timeout (0.2.0)
     turbo-rails (1.0.1)
@@ -245,6 +247,7 @@ DEPENDENCIES
   redis (~> 4.0)
   selenium-webdriver
   stimulus-rails
+  tailwindcss-rails
   turbo-rails
   tzinfo-data
   web-console (>= 3.3.0)
