@@ -11,6 +11,7 @@ This is assuming that you are running this on a Mac. If you are on a Windows mac
 
 ### Prerequisites
 - [Ruby](https://ruby-doc.org/) 3.1.0
+  -  Recommend installing via [rbenv](https://github.com/rbenv/rbenv#installation)
 - [Bundler](https://bundler.io/) 2.2.3: `gem install bundler`
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
