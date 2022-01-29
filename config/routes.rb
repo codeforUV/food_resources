@@ -2,7 +2,6 @@
 #
 
 Rails.application.routes.draw do
-  devise_for :users
   root 'food_access_points#index'
 
   get '/about', to: 'pages#about'

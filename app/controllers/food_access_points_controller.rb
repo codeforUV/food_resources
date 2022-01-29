@@ -1,7 +1,4 @@
 class FoodAccessPointsController < ApplicationController
-
-  before_action :authenticate_user!, :except => [:index, :show]
-
   def index
     @food_access_points = FoodAccessPoint.all
   end
