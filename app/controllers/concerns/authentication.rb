@@ -36,5 +36,4 @@ module Authentication
   def user_signed_in?
     Current.user.present?
   end
-
 end
