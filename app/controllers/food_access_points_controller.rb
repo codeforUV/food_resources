@@ -1,4 +1,6 @@
 class FoodAccessPointsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+
   def index
     @food_access_points = FoodAccessPoint.all
   end
@@ -12,7 +14,6 @@ class FoodAccessPointsController < ApplicationController
   end
 
   def create
-    Rails.logger.debug params.inspect
     @food_access_point = current_user.food_access_points.build(food_access_point_create_params)
     if @food_access_point.save 
       redirect_to food_access_point_path(@food_access_point)
