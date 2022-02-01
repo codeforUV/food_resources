@@ -11,7 +11,7 @@ user = User.create(email: "a@me.com", password: "123456")
 
 puts user.email + " created."
 
-# For Food Acces Points, we use a csv file.  First step, read and parse the file.
+# For Food Access Points, we use a csv file.  First step, read and parse the file.
 csv = CSV.parse(File.read(Rails.root.join('db', 'seeds.csv')), headers: true)
 
 # Create Food Access Points assigned to our user.
