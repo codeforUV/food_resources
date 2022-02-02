@@ -4,7 +4,7 @@
 
 class Service < ApplicationRecord
   belongs_to :organization
-  has_many :contacts
+  belongs_to :user
   has_many :eligibilities
   has_many :languages
   has_many :phones

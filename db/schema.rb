@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_025658) do
+ActiveRecord::Schema.define(version: 2022_02_02_044625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,41 +24,12 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
     t.index ["location_id"], name: "index_accessibility_for_disabilities_on_location_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.bigint "organization_id"
-    t.bigint "service_id"
-    t.bigint "service_at_location_id"
-    t.string "name"
-    t.string "title"
-    t.string "department"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["organization_id"], name: "index_contacts_on_organization_id"
-    t.index ["service_at_location_id"], name: "index_contacts_on_service_at_location_id"
-    t.index ["service_id"], name: "index_contacts_on_service_id"
-  end
-
   create_table "eligibilities", force: :cascade do |t|
     t.bigint "service_id", null: false
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["service_id"], name: "index_eligibilities_on_service_id"
-  end
-
-  create_table "food_access_points", force: :cascade do |t|
-    t.string "address"
-    t.string "town"
-    t.string "state"
-    t.string "zip"
-    t.string "name"
-    t.string "phone_number"
-    t.string "website"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_food_access_points_on_user_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -84,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
-    t.string "description", null: false
+    t.string "description"
     t.string "email"
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
@@ -95,7 +66,6 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
     t.bigint "location_id"
     t.bigint "service_id"
     t.bigint "organization_id"
-    t.bigint "contact_id"
     t.bigint "service_at_location_id"
     t.string "number", null: false
     t.integer "extension"
@@ -104,7 +74,6 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_id"], name: "index_phones_on_contact_id"
     t.index ["location_id"], name: "index_phones_on_location_id"
     t.index ["organization_id"], name: "index_phones_on_organization_id"
     t.index ["service_at_location_id"], name: "index_phones_on_service_at_location_id"
@@ -172,6 +141,7 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
 
   create_table "services", force: :cascade do |t|
     t.bigint "organization_id", null: false
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "description"
     t.string "url"
@@ -182,6 +152,7 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organization_id"], name: "index_services_on_organization_id"
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -194,5 +165,4 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
-  add_foreign_key "food_access_points", "users"
 end

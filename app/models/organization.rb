@@ -5,9 +5,7 @@
 
 class Organization < ApplicationRecord
   validates :name, presence: true
-  validates :description, presence: true
 
-  has_many :contacts
   has_many :locations
   has_many :phones
   has_many :services

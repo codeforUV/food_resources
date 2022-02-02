@@ -13,7 +13,7 @@ class AddHsdsDataModel < ActiveRecord::Migration[6.1]
     # responsible for its delivery. One organization may deliver many services.
     create_table :organizations do |t|
       t.string :name, null: false
-      t.string :description, null: false
+      t.string :description
       t.string :email
       t.string :url
 
@@ -25,6 +25,7 @@ class AddHsdsDataModel < ActiveRecord::Migration[6.1]
     # Details on where each service is delivered are contained in the services_at_location table.
     create_table :services do |t|
       t.references :organization, null: false
+      t.references :user, null: false
       t.string :name, null: false
       t.string :description
       t.string :url
@@ -59,23 +60,6 @@ class AddHsdsDataModel < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    # https://docs.openreferral.org/en/latest/hsds/reference/#contact
-    # The contact table contains details of the named contacts for services and organizations.
-    # Note that in the HSDS data package format, if an individual is the contact for multiple
-    # services, their details may be duplicated multiple times in this table, each time with a new
-    # identifier, and with the rows containing different service ids.
-    create_table :contacts do |t|
-      t.references :organization
-      t.references :service
-      t.references :service_at_location
-      t.string :name
-      t.string :title
-      t.string :department
-      t.string :email
-
-      t.timestamps
-    end
-
     # https://docs.openreferral.org/en/latest/hsds/reference/#phone
     # The phone table contains details of the telephone numbers are used to contact organizations,
     # services, and locations.
@@ -83,7 +67,6 @@ class AddHsdsDataModel < ActiveRecord::Migration[6.1]
       t.references :location
       t.references :service
       t.references :organization
-      t.references :contact
       t.references :service_at_location
       t.string :number, null: false
       t.integer :extension
