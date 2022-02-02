@@ -7,8 +7,8 @@ class Location < ApplicationRecord
   has_many :accessibility_for_disabilities
   has_many :languages
   has_many :phones
-  has_many :physical_addresses
   has_many :schedules
-  has_many :service_at_locations
-  has_many :services, through: :service_at_locations
+  has_one :physical_address
+  has_one :service_at_location
+  has_one :service, through: :service_at_location
 end

@@ -1,0 +1,36 @@
+<%= render "header" %>
+<div class="mt-4">
+  <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3">
+    <% @services.each do |service| %>
+      <li class="col-span-1 px-6 py-4 bg-gray-400">
+        <%= link_to(service) do %>
+          <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider hover:text-red-700">
+            <%= service.display_name %>
+          </h3>
+        <% end%>
+        <div class="">
+          <div class="w-1/4 float-right">
+          <% if current_user && current_user.id == service.user_id %>
+            <%= link_to "EDIT", edit_user_service_path(current_user.id, service.id) %> | 
+            <%= link_to "DELETE", user_service_path(current_user, service), method: :delete,  data: { confirm: "Are you sure?" } %>
+          <% end %> 
+          <div class="bg-yellow-200 border-solid border-2 border-yellow-500 p-4 h-24">
+            <p class="text-black-500 text-center">MAP HERE</p>
+          </div>
+          </div>
+          <div>
+            <address class="not-italic mb-2">
+              <%= service.location.physical_address.address %>
+              <br>
+              <%= service.location.physical_address.city %>,
+              <%= service.location.physical_address.state_province %>
+              <%= service.location.physical_address.postal_code %>
+            </address>
+            <span class="mb-4"><%= service.phones.pluck(:number).join(", ") %></span><br>
+            <span>Hours today: 9:00 a.m - 2:00 p.m.</span>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

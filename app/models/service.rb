@@ -10,8 +10,16 @@ class Service < ApplicationRecord
   has_many :phones
   has_many :required_documents
   has_many :schedules
-  has_many :service_at_locations
-  has_many :locations, through: :service_at_locations
+  has_one :service_at_location
+  has_one :location, through: :service_at_location
 
   validates :name, presence: true
+
+  def display_name
+    if name != organization.name
+      "#{name} – #{organization.name}"
+    else
+      name
+    end
+  end
 end
