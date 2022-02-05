@@ -8,6 +8,16 @@ class FoodPantry < ApplicationRecord
   validates :postal_code, presence: true
 
   def formatted_schedule
+    parsed_schedules.map do |day, schedule|
+      if schedule[:ordinals].present?
+        ["#{schedule[:ordinals].map(&:ordinalize).to_sentence} #{day.to_s.capitalize}", schedule[:hours]]
+      else
+        [day.to_s.capitalize, schedule[:hours]]
+      end
+    end.to_h
+  end
+
+  def parsed_schedules
     schedules.each_with_object({
       monday: { hours: "Closed", ordinals: [] },
       tuesday: { hours: "Closed", ordinals: [] },
@@ -36,16 +46,19 @@ class FoodPantry < ApplicationRecord
           object[DateAndTime::Calculations::DAYS_INTO_WEEK.invert[day.to_i]][:ordinals] += days_of_week.values.flatten
         end
       end
-    end.map do |day, schedule|
-      if schedule[:ordinals].present?
-        ["#{schedule[:ordinals].map(&:ordinalize).to_sentence} #{day.to_s.capitalize}", schedule[:hours]]
-      else
-        [day.to_s.capitalize, schedule[:hours]]
-      end
-    end.to_h
+    end
   end
 
   def open_now?
     schedules.map { |schedule| IceCube::Schedule.from_hash(schedule).occurs_at?(Time.zone.now) }.any?
+  end
+
+  def open_today?
+    schedules.map { |schedule| IceCube::Schedule.from_hash(schedule).occurs_on?(Date.today) }.any?
+  end
+
+  def hours_today
+    today = DateAndTime::Calculations::DAYS_INTO_WEEK.invert[Date.today.cwday]
+    parsed_schedules[today][:hours]
   end
 end
