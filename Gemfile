@@ -10,7 +10,7 @@ gem "rails", "~> 7.0"
 gem "puma"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbo-rails"
-# Stimulis adds JS framework for hotwire.
+# Stimulus adds JS framework for hotwire.
 gem "stimulus-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.7"
