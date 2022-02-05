@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
 
 <head>
   <title>Upper Valley Food Pantries</title>
@@ -12,7 +12,7 @@
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 </head>
 
-<body class="bg-gray-100 py-6>
+<body class="h-full py-6">
   <% if notice %>
     <div class="bg-yellow-500 p-4 text-gray-800 text-center">
       <%= notice %>
@@ -24,7 +24,7 @@
     </div>
   <% end %>
   <%= render "header" %>
-  <main class="bg-gray-100 py-6">
+  <main class="py-6">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <%= yield %>
     </div>
