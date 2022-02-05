@@ -37,7 +37,7 @@ csv.each do |row|
       "SA" => :saturday
     }
 
-    bydayindex = row["bydayindex"]
+    bydayindex = row["bydayindex"].to_i
     days = row["byday"].split(", ").map { |day| day_map[day] }
     opens_at_hour, opens_at_minutes = row["opens_at"].split(":")
     closes_at_hour, closes_at_minutes = row["closes_at"].split(":")
