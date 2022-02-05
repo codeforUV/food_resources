@@ -9,13 +9,13 @@ class FoodPantry < ApplicationRecord
 
   def formatted_schedule
     schedules.each_with_object({
-      monday: { hours: "Closed", per_month: [] },
-      tuesday: { hours: "Closed", per_month: [] },
-      wednesday: { hours: "Closed", per_month: [] },
-      thursday: { hours: "Closed", per_month: [] },
-      friday: { hours: "Closed", per_month: [] },
-      saturday: { hours: "Closed", per_month: [] },
-      sunday: { hours: "Closed", per_month: [] }
+      monday: { hours: "Closed", ordinals: [] },
+      tuesday: { hours: "Closed", ordinals: [] },
+      wednesday: { hours: "Closed", ordinals: [] },
+      thursday: { hours: "Closed", ordinals: [] },
+      friday: { hours: "Closed", ordinals: [] },
+      saturday: { hours: "Closed", ordinals: [] },
+      sunday: { hours: "Closed", ordinals: [] }
     }) do |schedule, object|
       rrules = schedule["rrules"].first
       rule_type = rrules["rule_type"]
@@ -33,12 +33,12 @@ class FoodPantry < ApplicationRecord
 
         days_of_week.keys.each do |day|
           object[DateAndTime::Calculations::DAYS_INTO_WEEK.invert[day.to_i]][:hours] = formatted_hours
-          object[DateAndTime::Calculations::DAYS_INTO_WEEK.invert[day.to_i]][:per_month] += days_of_week.values.flatten
+          object[DateAndTime::Calculations::DAYS_INTO_WEEK.invert[day.to_i]][:ordinals] += days_of_week.values.flatten
         end
       end
     end.map do |day, schedule|
-      if schedule[:per_month].present?
-        ["#{schedule[:per_month].map(&:ordinalize).to_sentence} #{day.to_s.capitalize}", schedule[:hours]]
+      if schedule[:ordinals].present?
+        ["#{schedule[:ordinals].map(&:ordinalize).to_sentence} #{day.to_s.capitalize}", schedule[:hours]]
       else
         [day.to_s.capitalize, schedule[:hours]]
       end
