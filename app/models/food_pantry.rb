@@ -46,8 +46,6 @@ class FoodPantry < ApplicationRecord
   end
 
   def open_now?
-    schedules.map do |schedule|
-      IceCube::Schedule.from_hash(schedule).occurs_at?(Time.zone.now)
-    end.any?
+    schedules.map { |schedule| IceCube::Schedule.from_hash(schedule).occurs_at?(Time.zone.now) }.any?
   end
 end
