@@ -1,5 +1,8 @@
 <%= render "header" %>
 <div class="mt-4">
+    <%= link_to "Open Now", root_path(filter: "now") %>
+    <%= link_to "Open Today", root_path(filter: "today") %>
+
   <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3">
     <% @food_pantries.each do |food_pantry| %>
       <li class="col-span-1 px-6 py-4 bg-gray-400">
