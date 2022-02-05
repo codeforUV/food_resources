@@ -21,7 +21,7 @@ class FoodPantry < ApplicationRecord
       rule_type = rrules["rule_type"]
       start_time = schedule["start_time"]
       end_time = schedule["end_time"]
-      formatted_hours = "#{Time.parse(start_time).in_time_zone("Eastern Time (US & Canada)").strftime("%-I:%M %p")} – #{Time.parse(end_time).in_time_zone("Eastern Time (US & Canada)").strftime("%-I:%M %p")}"
+      formatted_hours = "#{Time.parse(start_time).strftime("%-I:%M %p")} – #{Time.parse(end_time).strftime("%-I:%M %p")}"
 
       if rule_type == "IceCube::WeeklyRule"
         days = rrules["validations"]["day"]
