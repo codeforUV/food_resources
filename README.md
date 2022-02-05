@@ -22,7 +22,8 @@ This is assuming that you are running this on a Mac. If you are on a Windows mac
 ### Running the app locally
 - Install Ruby dependencies: `bundle install`
 - Setup database: `bin/rails db:setup`
-- Start server (and run Tailwind CSS in watch mode): `bin/dev`
+- Start server: `bin/rails s`
+- In a separate terminal window, run Tailwind CSS in watch mode: `bin/rails tailwindcss:watch`
 - Visit `localhost:3000` to see the app
 
 ### Running tests
