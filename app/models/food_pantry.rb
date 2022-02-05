@@ -38,7 +38,7 @@ class FoodPantry < ApplicationRecord
       end
     end.map do |day, schedule|
       if schedule[:per_month].present?
-        ["#{schedule[:per_month].map(&:ordinalize).join(", ")} #{day.to_s.capitalize}", schedule[:hours]]
+        ["#{schedule[:per_month].map(&:ordinalize).to_sentence} #{day.to_s.capitalize}", schedule[:hours]]
       else
         [day.to_s.capitalize, schedule[:hours]]
       end
