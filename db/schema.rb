@@ -10,149 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_044625) do
+ActiveRecord::Schema.define(version: 2022_02_04_193021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accessibility_for_disabilities", force: :cascade do |t|
-    t.bigint "location_id", null: false
-    t.string "accessibility"
-    t.string "details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_accessibility_for_disabilities_on_location_id"
-  end
-
-  create_table "eligibilities", force: :cascade do |t|
-    t.bigint "service_id", null: false
-    t.string "description", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["service_id"], name: "index_eligibilities_on_service_id"
-  end
-
-  create_table "languages", force: :cascade do |t|
-    t.bigint "service_id"
-    t.bigint "location_id"
-    t.string "language", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_languages_on_location_id"
-    t.index ["service_id"], name: "index_languages_on_service_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.bigint "organization_id", null: false
-    t.string "name"
-    t.string "description"
-    t.integer "latitude"
-    t.integer "longitude"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["organization_id"], name: "index_locations_on_organization_id"
-  end
-
-  create_table "organizations", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description"
-    t.string "email"
-    t.string "url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "phones", force: :cascade do |t|
-    t.bigint "location_id"
-    t.bigint "service_id"
-    t.bigint "organization_id"
-    t.bigint "service_at_location_id"
-    t.string "number", null: false
-    t.integer "extension"
-    t.string "type"
-    t.string "language"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_phones_on_location_id"
-    t.index ["organization_id"], name: "index_phones_on_organization_id"
-    t.index ["service_at_location_id"], name: "index_phones_on_service_at_location_id"
-    t.index ["service_id"], name: "index_phones_on_service_id"
-  end
-
-  create_table "physical_addresses", force: :cascade do |t|
-    t.bigint "location_id", null: false
-    t.string "attention"
-    t.string "address", null: false
-    t.string "city", null: false
-    t.string "region"
-    t.string "state_province", null: false
-    t.string "postal_code", null: false
-    t.string "country", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_physical_addresses_on_location_id"
-  end
-
-  create_table "required_documents", force: :cascade do |t|
-    t.bigint "service_id", null: false
-    t.string "document", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["service_id"], name: "index_required_documents_on_service_id"
-  end
-
-  create_table "schedules", force: :cascade do |t|
-    t.bigint "service_id"
-    t.bigint "location_id"
-    t.bigint "service_at_location_id"
-    t.datetime "valid_from"
-    t.datetime "valid_to"
-    t.datetime "dtstart"
-    t.integer "timezone"
-    t.datetime "until"
-    t.integer "count"
-    t.string "wkst"
-    t.string "freq"
-    t.integer "interval"
-    t.string "byday"
-    t.string "byweekno"
-    t.integer "bymonthday"
-    t.integer "byyearday"
-    t.string "description"
-    t.datetime "opens_at"
-    t.datetime "closes_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_schedules_on_location_id"
-    t.index ["service_at_location_id"], name: "index_schedules_on_service_at_location_id"
-    t.index ["service_id"], name: "index_schedules_on_service_id"
-  end
-
-  create_table "service_at_locations", force: :cascade do |t|
-    t.bigint "service_id", null: false
-    t.bigint "location_id", null: false
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_service_at_locations_on_location_id"
-    t.index ["service_id"], name: "index_service_at_locations_on_service_id"
-  end
-
-  create_table "services", force: :cascade do |t|
-    t.bigint "organization_id", null: false
+  create_table "food_pantries", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "description"
     t.string "url"
     t.string "email"
-    t.string "interpretation_services"
-    t.string "application_process"
-    t.string "fees"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["organization_id"], name: "index_services_on_organization_id"
-    t.index ["user_id"], name: "index_services_on_user_id"
+    t.string "phone_1"
+    t.string "phone_2"
+    t.string "address"
+    t.string "town"
+    t.string "state"
+    t.string "postal_code"
+    t.string "eligibility_criteria"
+    t.string "required_documents"
+    t.string "typically_available"
+    t.string "notes"
+    t.jsonb "schedules", default: []
+    t.index ["user_id"], name: "index_food_pantries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

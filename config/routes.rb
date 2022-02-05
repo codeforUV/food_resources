@@ -2,7 +2,7 @@
 #
 
 Rails.application.routes.draw do
-  root 'services#index'
+  root 'food_pantries#index'
 
   post "sign_up", to: "users#create"
   get "sign_up", to: "users#new"
@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/how_to_use', to: 'pages#how_to_use'
 
-  resources :services, only: [:index, :show]
+  resources :food_pantries, only: [:index, :show]
 
   resources :users, only: [] do
-    resources :services, only: [:create, :new, :edit, :update, :destroy]
+    resources :food_pantries, only: [:create, :new, :edit, :update, :destroy]
   end
 end

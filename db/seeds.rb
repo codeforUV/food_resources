@@ -12,36 +12,56 @@ user.save!
 csv = CSV.parse(File.read(Rails.root.join('db', 'seeds.csv')), headers: true)
 
 csv.each do |row|
-  organization = Organization.find_or_create_by!(name: row["organization_name"])
-  location = Location.find_or_create_by(organization: organization, name: row["organization_name"])
-  service = Service.find_or_create_by!(name: row["service_name"], organization: organization, user: user)
-  service.update(description: row["service_description"], url: row["url"])
-  service_at_location = ServiceAtLocation.find_or_create_by!(location: location, service: service)
-  PhysicalAddress.find_or_create_by(
-    location: location,
+  food_pantry = FoodPantry.find_or_initialize_by(name: row["name"], user: user)
+  food_pantry.assign_attributes(
+    eligibility_criteria: row["eligibility_criteria"],
+    notes: row["notes"],
     address: row["address"],
-    city: row["city"],
-    state_province: row["state_province"],
+    town: row["town"],
+    state: row["state"],
+    phone_1: row["phone_1"],
     postal_code: row["postal_code"],
-    country: "USA"
+    url: row["url"]
   )
-  if row["freq"] 
-    Schedule.find_or_create_by!(
-      service: service,
-      location: location,
-      service_at_location: service_at_location,
-      freq: row["freq"],
-      interval: row["interval"],
-      byday: row["byday"],
-      opens_at: row["opens_at"],
-      closes_at: row["closes_at"],
-    )
+
+  food_pantry.phone_2 = row["phone_2"] if row["phone_2"]
+
+  if row["freq"]
+    day_map = {
+      "SU" => :sunday,
+      "MO" => :monday,
+      "TU" => :tuesday,
+      "WE" => :wednesday,
+      "TH" => :thursday,
+      "FR" => :friday,
+      "SA" => :saturday
+    }
+
+    bydayindex = row["bydayindex"]
+    days = row["byday"].split(", ").map { |day| day_map[day] }
+    opens_at_hour, opens_at_minutes = row["opens_at"].split(":")
+    closes_at_hour, closes_at_minutes = row["closes_at"].split(":")
+    start_time = Time.now.change(hour: opens_at_hour, min: opens_at_minutes)
+    end_time = Time.now.change(hour: closes_at_hour, min: closes_at_minutes)
+    duration = end_time - start_time
+    schedule = IceCube::Schedule.new(start_time, duration: duration)
+
+    if row["freq"] == "monthly"
+      day_of_week = days.each_with_object({}) do |day, object|
+        object[day] = [bydayindex.to_i]
+      end
+
+      rule = IceCube::Rule.monthly.day_of_week(day_of_week)
+    elsif row["freq"] == "weekly"
+
+      rule = IceCube::Rule.weekly.day(*days)
+    end
+
+    schedule.add_recurrence_rule(rule)
+    existing_schedules = food_pantry.schedules
+    new_schedules = existing_schedules << schedule.to_hash
+    food_pantry.schedules = new_schedules
   end
-  Phone.find_or_create_by!(
-    location: location,
-    service: service,
-    organization: organization,
-    service_at_location: service_at_location,
-    number: row["phone"]
-  )
+
+  food_pantry.save!
 end

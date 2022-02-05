@@ -1,23 +1,22 @@
-organization_name,service_name,service_description,address,city,state_province,postal_code,freq,interval,byday,opens_at,closes_at,phone,url
-Ascutney Union Church Food Cupboard,Ascutney Union Church Food Cupboard,"Serving residents of Ascutney, Weathersfield, Amsden, Perkinsville, Greenbush, Weathersfield Center/Bow and Windsor.",5243 Route 5,Ascutney,VT,05089,weekly,1,SA,9:00,10:00,802-674-2484,
-Bethel Area Food Shelf,Bethel Area Food Shelf,Serving residents of Bethel and Barnard,129 Church St.,Bethel,VT,05032,weekly,1,MO,12:00,14:00,802-234-5513,https://www.bethelvtfoodshelf.org
-Bethel Area Food Shelf,Bethel Area Food Shelf,Serving residents of Bethel and Barnard,129 Church St.,Bethel,VT,05032,weekly,1,TH,17:00,19:00,802-234-5513,https://www.bethelvtfoodshelf.org
-Bradford Churches Food Shelf,Bradford Churches Food Shelf,,"Academy Building, 172 N. Main St.",Bradford,VT,05033,weekly,1,"MO, TU, TH",15:00,16:00,802-222-5108,
-Bradford Churches Food Shelf,Bradford Churches Food Shelf,,"Academy Building, 172 N. Main St.",Bradford,VT,05033,weekly,1,WE,17:00,18:00,802-222-5108,
-Bradford Churches Food Shelf,Bradford Churches Food Shelf,,"Academy Building, 172 N. Main St.",Bradford,VT,05033,weekly,1,FR,11:00,12:00,802-222-5108,
-United Church of Chelsea,Chelsea Food Shelf,Emergency needs by appointment,13 North Common,Chelsea,VT,05040,monthly,1,2TU,12:00,13:00,802-685-3146,
-United Church of Chelsea,Chelsea Food Shelf,Emergency needs by appointment,13 North Common,Chelsea,VT,05040,monthly,1,4TU,16:00,17:00,802-685-3146,
-Fairlee Town Hall,Orford/Fairlee Food Shelf,"Serving residents of Orford, Fairlee and the Rivendell School District","Town Hall, Town Common Road",Fairlee,VT,05045,weekly,1,"MO, TU, WE, TH",9:00,15:30,802-333-4363,
-Fairlee Town Hall,Orford/Fairlee Food Shelf,"Serving residents of Orford, Fairlee and the Rivendell School District","Town Hall, Town Common Road",Fairlee,VT,05045,weekly,1,FR,10:00,12:00,802-333-4363,
-Cornerstone Community Center,Joseph’s Storehouse,Also available by appointment,14 Elk St,Hartford,VT,05001,weekly,1,SU,12:45,13:45,802-295-5738,
-Cornerstone Community Center,Joseph’s Storehouse,Also available by appointment,14 Elk St,Hartford,VT,05001,weekly,1,SU,12:45,13:45,603-252-6901,
-Universalist Church,Hartland Food Shelf,,8 Brownsville Road,Hartland,VT,05048,weekly,1,FR,8:00,10:00,802-738-0383,https://hartlandfoodshelf.com/
-Newbury Bible Church,Newbury Food Shelf,Open four times a month. Call for schedule ,17 Cross St,Newbury,VT,05081,,,,,,802-866-5527,
-Randolph Area Food Shelf,Randolph Area Food Shelf,,12 Prince St,Randolph,VT,05060,weekly,1,"MO, WE, FR",15:00,17:00,802-431-0144,https://www.randolphareafoodshelf.org/
-Randolph Area Food Shelf,Randolph Area Food Shelf,,12 Prince St,Randolph,VT,05060,weekly,1,TU,13:00,17:00,802-431-0144,https://www.randolphareafoodshelf.org/
-Randolph Area Food Shelf,Randolph Area Food Shelf,,12 Prince St,Randolph,VT,05060,weekly,1,TH,17:00,19:00,802-431-0144,https://www.randolphareafoodshelf.org/
-Stone School,Reading-West Windsor Food Shelf,,3456 Tyson Road,Reading,VT,05153,weekly,1,MO,14:00,16:00,802-952-1068,https://rwwfoodshelf.org/
-Stone School,Reading-West Windsor Food Shelf,,3456 Tyson Road,Reading,VT,05153,weekly,1,TH,16:00,18:00,802-952-1068,https://rwwfoodshelf.org/
-Lighthouse Food Shelf,Lighthouse Food Shelf,Across the street from the Congregational Church. Call for assistance outside of normal hours.,55 Route 132,Sharon,VT,05065,weekly,1,"TU, TH",16:30,18:30,802-763-2007,
-United Church of South Royalton,Royalton Food Shelf,,2955 Route 14,South Royalton,VT,05068,weekly,1,TH,11:30,13:30,802-763-7633,https://www.unitedchurchofsoro.org/food-shelf/
-United Church of South Royalton,Royalton Food Shelf,,2955 Route 14,South Royalton,VT,05068,weekly,1,TH,17:00,19:00,802-763-7633,https://www.unitedchurchofsoro.org/food-shelf/
+name,eligibility_criteria,notes,address,town,state,postal_code,freq,interval,bydayindex,byday,opens_at,closes_at,phone_1,phone_2,url
+Ascutney Union Church Food Cupboard,"Serving residents of Ascutney, Weathersfield, Amsden, Perkinsville, Greenbush, Weathersfield Center/Bow and Windsor.",,5243 Route 5,Ascutney,VT,05089,weekly,1,,SA,9:00,10:00,802-674-2484,,
+Bethel Area Food Shelf,Serving residents of Bethel and Barnard,,129 Church St.,Bethel,VT,05032,weekly,1,,MO,12:00,14:00,802-234-5513,,https://www.bethelvtfoodshelf.org
+Bethel Area Food Shelf,Serving residents of Bethel and Barnard,,129 Church St.,Bethel,VT,05032,weekly,1,,TH,17:00,19:00,802-234-5513,,https://www.bethelvtfoodshelf.org
+Bradford Churches Food Shelf,,,"Academy Building, 172 N. Main St.",Bradford,VT,05033,weekly,1,,"MO, TU, TH",15:00,16:00,802-222-5108,,
+Bradford Churches Food Shelf,,,"Academy Building, 172 N. Main St.",Bradford,VT,05033,weekly,1,,WE,17:00,18:00,802-222-5108,,
+Bradford Churches Food Shelf,,,"Academy Building, 172 N. Main St.",Bradford,VT,05033,weekly,1,,FR,11:00,12:00,802-222-5108,,
+Chelsea Food Shelf (United Church of Chelsea),,Emergency needs by appointment,13 North Common,Chelsea,VT,05040,monthly,1,2,TU,12:00,13:00,802-685-3146,,
+Chelsea Food Shelf (United Church of Chelsea),,Emergency needs by appointment,13 North Common,Chelsea,VT,05040,monthly,1,4,TU,16:00,17:00,802-685-3146,,
+Orford/Fairlee Food Shelf (Fairlee Town Hall),"Serving residents of Orford, Fairlee and the Rivendell School District",,"Town Hall, Town Common Road",Fairlee,VT,05045,weekly,1,,"MO, TU, WE, TH",9:00,15:30,802-333-4363,,
+Orford/Fairlee Food Shelf (Fairlee Town Hall),"Serving residents of Orford, Fairlee and the Rivendell School District",,"Town Hall, Town Common Road",Fairlee,VT,05045,weekly,1,,FR,10:00,12:00,802-333-4363,,
+Joseph’s Storehouse (Cornerstone Community Center),,Also available by appointment,14 Elk St,Hartford,VT,05001,weekly,1,,SU,12:45,13:45,802-295-5738,603-252-6901,
+Hartland Food Shelf (Universalist Church),,,8 Brownsville Road,Hartland,VT,05048,weekly,1,,FR,8:00,10:00,802-738-0383,,https://hartlandfoodshelf.com/
+Newbury Food Shelf (Newbury Bible Church),,Open four times a month. Call for schedule ,17 Cross St,Newbury,VT,05081,,,,,,,802-866-5527,,
+Randolph Area Food Shelf,,,12 Prince St,Randolph,VT,05060,weekly,1,,"MO, WE, FR",15:00,17:00,802-431-0144,,https://www.randolphareafoodshelf.org/
+Randolph Area Food Shelf,,,12 Prince St,Randolph,VT,05060,weekly,1,,TU,13:00,17:00,802-431-0144,,https://www.randolphareafoodshelf.org/
+Randolph Area Food Shelf,,,12 Prince St,Randolph,VT,05060,weekly,1,,TH,17:00,19:00,802-431-0144,,https://www.randolphareafoodshelf.org/
+Reading-West Windsor Food Shelf (Stone School),,,3456 Tyson Road,Reading,VT,05153,weekly,1,,MO,14:00,16:00,802-952-1068,,https://rwwfoodshelf.org/
+Reading-West Windsor Food Shelf (Stone School),,,3456 Tyson Road,Reading,VT,05153,weekly,1,,TH,16:00,18:00,802-952-1068,,https://rwwfoodshelf.org/
+Lighthouse Food Shelf,,Across the street from the Congregational Church. Call for assistance outside of normal hours.,55 Route 132,Sharon,VT,05065,weekly,1,,"TU, TH",16:30,18:30,802-763-2007,,
+Royalton Food Shelf (United Church of South Royalton),,,2955 Route 14,South Royalton,VT,05068,weekly,1,,TH,11:30,13:30,802-763-7633,,https://www.unitedchurchofsoro.org/food-shelf/
+Royalton Food Shelf (United Church of South Royalton),,,2955 Route 14,South Royalton,VT,05068,weekly,1,,TH,17:00,19:00,802-763-7633,,https://www.unitedchurchofsoro.org/food-shelf/

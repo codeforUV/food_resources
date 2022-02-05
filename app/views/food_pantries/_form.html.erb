@@ -1,0 +1,35 @@
+<div class="mx-auto md:w-1/2 p-4 md:p-8 bg-gray-400">
+  <%= form_with model: [current_user, @food_pantry] do |form| %>
+    <div class="field mb-4">
+      <%= form.label :name, "Name" %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field mb-4">
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
+    <div class="field mb-4">
+      <%= form.label :town %>
+      <%= form.text_field :town %>
+    </div>
+    <div class="field mb-4">
+      <%= form.label :state %>
+      <%= form.text_field :state %>
+    </div>
+    <div class="field mb-4">
+      <%= form.label :postal_code %>
+      <%= form.text_field :postal_code %>
+    </div>
+    <div class="field mb-4">
+      <%= form.label :phone_1, "Phone (Primary)" %>
+      <%= form.text_field :phone_1 %>
+    </div>
+    <div class="field mb-4">
+      <%= form.label :phone_2, "Phone (Secondary)" %>
+      <%= form.text_field :phone_2 %>
+    </div>
+    <div class="actions mb-8">
+      <%= form.submit "Save", class: "px-5 py-2 my-2 bg-gray-200 hover:bg-gray-800 hover:text-grat-100 rounded" %>
+    </div>
+  <% end %>
+</div>

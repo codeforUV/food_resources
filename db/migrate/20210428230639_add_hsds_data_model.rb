@@ -87,7 +87,7 @@ class AddHsdsDataModel < ActiveRecord::Migration[6.1]
       t.string :region
       t.string :state_province, null: false
       t.string :postal_code, null: false
-      t.string :country, null: false
+      t.string :country, null: false, default: "USA"
 
       t.timestamps
     end
