@@ -23,9 +23,12 @@
       <%= alert %>
     </div>
   <% end %>
-    <%# <main class="container mx-auto mt-28 px-5 flex"> %>
-    <%= yield %>
-    <%# </main> %>
+  <%= render "header" %>
+  <main class="bg-gray-100 py-6">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <%= yield %>
+    </div>
+  </main>
 </body>
 
 </html>
