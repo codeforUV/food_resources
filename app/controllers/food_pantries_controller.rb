@@ -2,7 +2,15 @@ class FoodPantriesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
 
   def index
-    @food_pantries = FoodPantry.all
+    if params[:filter]
+      if params[:filter] == "now"
+        @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_now? }
+      elsif params[:filter] == "today"
+        @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_today? }
+      end
+    else
+      @food_pantries = FoodPantry.all
+    end
   end
 
   def show
