@@ -27,7 +27,11 @@
               <%= food_pantry.postal_code %>
             </address>
             <span class="mb-4"><%= food_pantry.phone_1 %></span><br>
-            <span>Hours today: 9:00 a.m - 2:00 p.m.</span>
+            <% if food_pantry.open_today? %>
+              <span>Hours today: <%= food_pantry.hours_today %></span>
+            <% else %>
+              <span>Closed today</span>
+            <% end %>
           </div>
         </div>
       </li>
