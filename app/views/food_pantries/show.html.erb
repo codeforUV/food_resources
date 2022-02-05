@@ -1,103 +1,73 @@
-<%= render "header" %>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900 flex"><%= @food_pantry.name %></h3>
+    <% if current_user&.id == @food_pantry.user_id %>
+      <div>
+        <%= link_to "Edit", edit_user_food_pantry_path(current_user.id, @food_pantry) %> | 
+        <%= link_to "Delete", user_food_pantry_path(current_user, @food_pantry), method: :delete,  data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %> 
+  </div>
+  <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Location</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.address %></dd>
+        <dd class="mt-1 text-sm text-gray-900"><%= "#{@food_pantry.town}, #{@food_pantry.state} #{@food_pantry.postal_code}" %></dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Contact</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.phone_1 %></dd>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.phone_2 %></dd>
+        <dd class="mt-1 text-sm font-medium text-indigo-600 hover:text-indigo-500"><%= mail_to @food_pantry.email %></dd>
+        <dd class="mt-1 text-sm font-medium text-indigo-600 hover:text-indigo-500"><%= link_to_if @food_pantry.url, @food_pantry.url, @food_pantry.url %></dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Eligibility Criteria</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.eligibility_criteria %></dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Required Documents</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.required_documents %></dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Hours</dt>
+        <div class="flex flex-col">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block sm:px-6 lg:px-8">
+              <div class="overflow-hidden">
+                <table class="min-w-full">
+                  <tbody class="bg-white">
+                    <% @food_pantry.formatted_schedule.each do |day, hours| %>
+                      <tr>
+                        <td class="whitespace-nowrap text-sm font-medium text-gray-900 pr-6"><%= day %></td>
+                        <td class="whitespace-nowrap text-sm text-gray-500"><%= hours %></td>
+                        <% if @food_pantry.open_now? %>
+                          <td class="whitespace-nowrap text-sm font-medium text-green-600 pl-6">Open now</td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Typically Available Items</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.typically_available %></dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Recently Arrived Items (Last updated <%= @food_pantry.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%-m/%-d/%y %-I:%M %p") %>)</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.recent_arrivals %></dd>
+      </div>
 
-<% if current_user&.id == @food_pantry.user_id %>
-  <%= link_to "EDIT", edit_user_food_pantry_path(current_user.id, @food_pantry) %> | 
-  <%= link_to "DELETE", user_food_pantry_path(current_user, @food_pantry), method: :delete,  data: { confirm: "Are you sure?" } %>
-<% end %> 
-
-<div class="flex mt-4">
-  <div class="w-full text-center">
-    <h1 class="font-semibold text-2xl text-gray-800"><%= @food_pantry.name %></h1>
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">Other Notes</dt>
+        <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.notes %></dd>
+      </div>
+    </dl>
   </div>
 </div>
-<div class="flex justify-around mt-2">
-  <div><a class="text-blue-600 hover:underline" href="">Leave feedback</a></div>
-</div>
-<div class="flex mt-2 pl-5">
-  <div class="font-semibold text-2xl text-gray-800">Info</div>
-</div>
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-    <%= @food_pantry.address %>
-  </div>
-  <div class="w-1/2">
-    <div><%= @food_pantry.phone_1 %></div>
-    <div><%= @food_pantry.phone_2 %></div>
-  </div>
-</div>
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-    <%= @food_pantry.town + ", " + @food_pantry.state + " " + @food_pantry.postal_code %>
-  </div>
-  <div class="w-1/2">
-    <%= @food_pantry.email %>
-  </div>
-</div>
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-  </div>
-  <div class="w-1/2">
-    <%= @food_pantry.url %>
-  </div>
-</div>
-
-<br>
-
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-    Eligibility Criteria
-  </div>
-  <div class="w-1/2">
-    <%= @food_pantry.eligibility_criteria || "..." %>
-  </div>
-</div>
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-    Required Documents
-  </div>
-  <div class="w-1/2">
-    <%= @food_pantry.required_documents || "..." %>
-  </div>
-</div>
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-    Typically Available
-  </div>
-  <div class="w-1/2">
-    <%= @food_pantry.typically_available || "..." %>
-  </div>
-</div>
-
-<div class="flex mt-5 pl-5">
-  <div class="font-semibold text-2xl text-gray-800">Hours</div>
-</div>
-
-<div class="flex mt-2 pl-5">
-  <div class="w-1/2">
-    <% if @food_pantry.open_now? %>
-      Open Now
-    <% else %>
-      Closed Now
-    <% end %>
-  </div>
-</div>
-<% @food_pantry.formatted_schedule.each do |day, hours| %>
-  <div class="flex mt-2 pl-5">
-    <div class="w-1/2">
-      <%= day %>
-    </div>
-    <div class="w-1/2">
-      <%= hours %>
-    </div>
-  </div>
-<% end %>
-
-<div class="flex mt-5 pl-5">
-  <div class="w-1/2 font-semibold text-2xl text-gray-800">Recent arrivals</div>
-  <div class="w-1/2 text-sm">Last updated <%= @food_pantry.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%-m/%-d/%y %-I:%M %p") %></div>
-</div>
-
-<%= render partial: 'info', :locals => {:info_1 => "Bread", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Milk", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Canned goods", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "...", :info_2 => "" } %>
