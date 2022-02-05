@@ -98,6 +98,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.16.4)
     importmap-rails (1.0.2)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  ice_cube
   importmap-rails
   jbuilder (~> 2.7)
   pg (~> 1.0)

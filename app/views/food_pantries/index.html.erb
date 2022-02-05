@@ -1,0 +1,36 @@
+<%= render "header" %>
+<div class="mt-4">
+  <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3">
+    <% @food_pantries.each do |food_pantry| %>
+      <li class="col-span-1 px-6 py-4 bg-gray-400">
+        <%= link_to(food_pantry) do %>
+          <h3 class="text-lg font-bold border-b-2 border-solid border-gray-200 mb-3 uppercase trackinig-wider hover:text-red-700">
+            <%= food_pantry.name %>
+          </h3>
+        <% end%>
+        <div class="">
+          <div class="w-1/4 float-right">
+          <% if current_user && current_user.id == food_pantry.user_id %>
+            <%= link_to "EDIT", edit_user_food_pantry_path(current_user.id, food_pantry.id) %> | 
+            <%= link_to "DELETE", user_food_pantry_path(current_user, food_pantry), method: :delete,  data: { confirm: "Are you sure?" } %>
+          <% end %> 
+          <div class="bg-yellow-200 border-solid border-2 border-yellow-500 p-4 h-24">
+            <p class="text-black-500 text-center">MAP HERE</p>
+          </div>
+          </div>
+          <div>
+            <address class="not-italic mb-2">
+              <%= food_pantry.address %>
+              <br>
+              <%= food_pantry.town %>,
+              <%= food_pantry.state %>
+              <%= food_pantry.postal_code %>
+            </address>
+            <span class="mb-4"><%= food_pantry.phone_1 %></span><br>
+            <span>Hours today: 9:00 a.m - 2:00 p.m.</span>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

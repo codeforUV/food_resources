@@ -2,7 +2,7 @@
 
 <div class="flex mt-4">
     <div class="w-full text-center">
-        <h1 class="font-semibold text-2xl text-gray-800"><%= @food_access_point.name %></h1>
+        <h1 class="font-semibold text-2xl text-gray-800"><%= @food_pantry.name %></h1>
     </div>
 </div>
 <div class="flex justify-around mt-2">
@@ -12,10 +12,10 @@
 <div class="flex mt-2 pl-5">
     <div class="font-semibold text-2xl text-gray-800">Info</div>
 </div>
-<%= render partial: 'info', :locals => {:info_1 => @food_access_point.address.split.map(&:capitalize)*' ', :info_2 => @food_access_point.phone_number } %>
-<% complete_address = @food_access_point.town.to_s + ", " + @food_access_point.state.to_s + " " + @food_access_point.zip.to_s %>
+<%= render partial: 'info', :locals => {:info_1 => @food_pantry.address.split.map(&:capitalize)*' ', :info_2 => @food_pantry.phone_1 } %>
+<% complete_address = @food_pantry.town + ", " + @food_pantry.state + " " + @food_pantry.postal_code %>
 <%= render partial: 'info', :locals => {:info_1 => complete_address, :info_2 => "No e-mail registred." } %>
-<%= render partial: 'info', :locals => {:info_1 => "", :info_2 => @food_access_point.website } %>
+<%= render partial: 'info', :locals => {:info_1 => "", :info_2 => @food_pantry.url } %>
 <br>
 <%= render partial: 'info', :locals => {:info_1 => "Income qualifications", :info_2 => "..." } %>
 <%= render partial: 'info', :locals => {:info_1 => "Required documentation", :info_2 => "..." } %>

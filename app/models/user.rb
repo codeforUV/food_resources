@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   before_save :downcase_email
   
-  has_many :food_access_points
+  has_many :food_pantries
   
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}, presence: true, uniqueness: true
 

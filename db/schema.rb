@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_025658) do
+ActiveRecord::Schema.define(version: 2022_02_04_193021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "food_access_points", force: :cascade do |t|
+  create_table "food_pantries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.string "description"
+    t.string "url"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "phone_1"
+    t.string "phone_2"
     t.string "address"
     t.string "town"
     t.string "state"
-    t.string "zip"
-    t.string "name"
-    t.string "phone_number"
-    t.string "website"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_food_access_points_on_user_id"
-  end
-
-  create_table "schedules", force: :cascade do |t|
-    t.string "day"
-    t.string "open_hours"
-    t.string "close_hours"
-    t.bigint "food_access_point_id"
-    t.index ["food_access_point_id"], name: "index_schedules_on_food_access_point_id"
+    t.string "postal_code"
+    t.string "eligibility_criteria"
+    t.string "required_documents"
+    t.string "typically_available"
+    t.string "notes"
+    t.jsonb "schedules", default: []
+    t.index ["user_id"], name: "index_food_pantries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +47,4 @@ ActiveRecord::Schema.define(version: 2022_01_30_025658) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
-  add_foreign_key "food_access_points", "users"
 end
