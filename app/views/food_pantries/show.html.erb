@@ -1,42 +1,89 @@
 <%= render "header" %>
 
 <div class="flex mt-4">
-    <div class="w-full text-center">
-        <h1 class="font-semibold text-2xl text-gray-800"><%= @food_pantry.name %></h1>
-    </div>
+  <div class="w-full text-center">
+    <h1 class="font-semibold text-2xl text-gray-800"><%= @food_pantry.name %></h1>
+  </div>
 </div>
 <div class="flex justify-around mt-2">
-    <div><span class="text-gray-700">Food pantry</span></div>
-    <div><a class="text-blue-600 hover:underline" href="">Leave feedback</a></div>
+  <div><a class="text-blue-600 hover:underline" href="">Leave feedback</a></div>
 </div>
 <div class="flex mt-2 pl-5">
-    <div class="font-semibold text-2xl text-gray-800">Info</div>
+  <div class="font-semibold text-2xl text-gray-800">Info</div>
 </div>
-<%= render partial: 'info', :locals => {:info_1 => @food_pantry.address.split.map(&:capitalize)*' ', :info_2 => @food_pantry.phone_1 } %>
-<% complete_address = @food_pantry.town + ", " + @food_pantry.state + " " + @food_pantry.postal_code %>
-<%= render partial: 'info', :locals => {:info_1 => complete_address, :info_2 => "No e-mail registred." } %>
-<%= render partial: 'info', :locals => {:info_1 => "", :info_2 => @food_pantry.url } %>
+<div class="flex mt-2 pl-5">
+  <div class="w-1/2">
+    <%= @food_pantry.address %>
+  </div>
+  <div class="w-1/2">
+    <div><%= @food_pantry.phone_1 %></div>
+    <div><%= @food_pantry.phone_2 %></div>
+  </div>
+</div>
+<div class="flex mt-2 pl-5">
+  <div class="w-1/2">
+    <%= @food_pantry.town + ", " + @food_pantry.state + " " + @food_pantry.postal_code %>
+  </div>
+  <div class="w-1/2">
+    <%= @food_pantry.email %>
+  </div>
+</div>
+<div class="flex mt-2 pl-5">
+  <div class="w-1/2">
+  </div>
+  <div class="w-1/2">
+    <%= @food_pantry.url %>
+  </div>
+</div>
+
 <br>
-<%= render partial: 'info', :locals => {:info_1 => "Income qualifications", :info_2 => "..." } %>
-<%= render partial: 'info', :locals => {:info_1 => "Required documentation", :info_2 => "..." } %>
-<%= render partial: 'info', :locals => {:info_1 => "Typically available", :info_2 => "..." } %>
+
+<div class="flex mt-2 pl-5">
+  <div class="w-1/2">
+    Eligibility Criteria
+  </div>
+  <div class="w-1/2">
+    <%= @food_pantry.eligibility_criteria || "..." %>
+  </div>
+</div>
+<div class="flex mt-2 pl-5">
+  <div class="w-1/2">
+    Required Documents
+  </div>
+  <div class="w-1/2">
+    <%= @food_pantry.required_documents || "..." %>
+  </div>
+</div>
+<div class="flex mt-2 pl-5">
+  <div class="w-1/2">
+    Typically Available
+  </div>
+  <div class="w-1/2">
+    <%= @food_pantry.typically_available || "..." %>
+  </div>
+</div>
 
 <div class="flex mt-5 pl-5">
-    <div class="font-semibold text-2xl text-gray-800">Hours</div>
+  <div class="font-semibold text-2xl text-gray-800">Hours</div>
 </div>
+
 <%= render partial: 'info', :locals => {:info_1 => "Open now", :info_2 => "" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Monday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Tuesday", :info_2 => "Closed" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Wednesday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Thursday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Friday", :info_2 => "9:00am - 5:00pm" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Saturday", :info_2 => "Closed" } %>
-<%= render partial: 'info', :locals => {:info_1 => "Sunday", :info_2 => "Closed" } %>
+<% @food_pantry.formatted_schedule.each do |day, hours| %>
+  <div class="flex mt-2 pl-5">
+    <div class="w-1/2">
+      <%= day %>
+    </div>
+    <div class="w-1/2">
+      <%= hours %>
+    </div>
+  </div>
+<% end %>
 
 <div class="flex mt-5 pl-5">
-    <div class="w-1/2 font-semibold text-2xl text-gray-800">Recent arrivals</div>
-    <div class="w-1/2 text-sm">Last updated 3/10/20 10:00AM</div>
+  <div class="w-1/2 font-semibold text-2xl text-gray-800">Recent arrivals</div>
+  <div class="w-1/2 text-sm">Last updated <%= @food_pantry.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%-m/%-d/%y %-I:%M %p") %></div>
 </div>
+
 <%= render partial: 'info', :locals => {:info_1 => "Bread", :info_2 => "" } %>
 <%= render partial: 'info', :locals => {:info_1 => "Milk", :info_2 => "" } %>
 <%= render partial: 'info', :locals => {:info_1 => "Canned goods", :info_2 => "" } %>

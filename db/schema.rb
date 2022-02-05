@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_193021) do
+ActiveRecord::Schema.define(version: 2022_02_05_023955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_193021) do
     t.string "typically_available"
     t.string "notes"
     t.jsonb "schedules", default: []
+    t.string "recent_arrivals"
     t.index ["user_id"], name: "index_food_pantries_on_user_id"
   end
 
