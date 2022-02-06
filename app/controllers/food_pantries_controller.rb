@@ -46,8 +46,9 @@ class FoodPantriesController < ApplicationController
   end
 
   def destroy
-    @food_pantry = FoodPantry.find(params[:id])
-    @food_pantry.destroy
+    food_pantry = FoodPantry.find(params[:id])
+    food_pantry.destroy
+
     redirect_to root_path
   end
 
