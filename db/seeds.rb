@@ -41,8 +41,8 @@ csv.each do |row|
     days = row["byday"].split(", ").map { |day| day_map[day] }
     opens_at_hour, opens_at_minutes = row["opens_at"].split(":")
     closes_at_hour, closes_at_minutes = row["closes_at"].split(":")
-    start_time = Time.now.change(hour: opens_at_hour, min: opens_at_minutes)
-    end_time = Time.now.change(hour: closes_at_hour, min: closes_at_minutes)
+    start_time = Time.now.in_time_zone("Eastern Time (US & Canada)").change(hour: opens_at_hour, min: opens_at_minutes)
+    end_time = Time.now.in_time_zone("Eastern Time (US & Canada)").change(hour: closes_at_hour, min: closes_at_minutes)
     duration = end_time - start_time
     schedule = IceCube::Schedule.new(start_time, duration: duration)
 
