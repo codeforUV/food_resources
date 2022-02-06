@@ -24,11 +24,11 @@
         <dd class="mt-1 text-sm font-medium text-indigo-600 hover:text-indigo-500"><%= link_to_if @food_pantry.url, @food_pantry.url, @food_pantry.url %></dd>
       </div>
       <div class="sm:col-span-1">
-        <dt class="text-sm font-medium text-gray-500">Eligibility Criteria</dt>
+        <dt class="text-sm font-medium text-gray-500">Eligibility criteria</dt>
         <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.eligibility_criteria %></dd>
       </div>
       <div class="sm:col-span-1">
-        <dt class="text-sm font-medium text-gray-500">Required Documents</dt>
+        <dt class="text-sm font-medium text-gray-500">Required documents</dt>
         <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.required_documents %></dd>
       </div>
       <div class="sm:col-span-1">
@@ -56,16 +56,16 @@
         </div>
       </div>
       <div class="sm:col-span-1">
-        <dt class="text-sm font-medium text-gray-500">Typically Available Items</dt>
+        <dt class="text-sm font-medium text-gray-500">Typically available items</dt>
         <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.typically_available %></dd>
       </div>
       <div class="sm:col-span-1">
-        <dt class="text-sm font-medium text-gray-500">Recently Arrived Items (Last updated <%= @food_pantry.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%-m/%-d/%y %-I:%M %p") %>)</dt>
+        <dt class="text-sm font-medium text-gray-500">Recently arrived items (last updated <%= @food_pantry.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%-m/%-d/%y %-I:%M %p") %>)</dt>
         <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.recent_arrivals %></dd>
       </div>
 
       <div class="sm:col-span-1">
-        <dt class="text-sm font-medium text-gray-500">Other Notes</dt>
+        <dt class="text-sm font-medium text-gray-500">Other notes</dt>
         <dd class="mt-1 text-sm text-gray-900"><%= @food_pantry.notes %></dd>
       </div>
     </dl>

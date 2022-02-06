@@ -54,6 +54,21 @@ class FoodPantriesController < ApplicationController
   private 
 
   def food_pantry_params
-    params.require(:food_pantry).permit(:name, :address, :town, :state, :postal_code, :phone_1, :phone_2)
+    params.require(:food_pantry).permit(
+      :name,
+      :address,
+      :town,
+      :state,
+      :postal_code,
+      :phone_1,
+      :phone_2,
+      :email,
+      :url,
+      :eligibility_criteria,
+      :required_documents,
+      :typically_available,
+      :recent_arrivals,
+      :notes
+    )
   end
 end
