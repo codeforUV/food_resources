@@ -51,15 +51,19 @@ class FoodPantry < ApplicationRecord
   end
 
   def open_now?
-    schedules.map { |schedule| IceCube::Schedule.from_hash(schedule).occurs_at?(Time.zone.now) }.any?
+    schedules.map do |schedule|
+      IceCube::Schedule.from_hash(schedule).occurs_at?(Time.now.in_time_zone(schedule["start_time"]["zone"]))
+    end.any?
   end
 
   def open_today?
-    schedules.map { |schedule| IceCube::Schedule.from_hash(schedule).occurs_on?(Date.today) }.any?
+    schedules.map do |schedule|
+      IceCube::Schedule.from_hash(schedule).occurs_on?(Time.now.in_time_zone(schedule["start_time"]["zone"]).beginning_of_day.to_date)
+    end.any?
   end
 
   def hours_today
-    today = DateAndTime::Calculations::DAYS_INTO_WEEK.invert[Date.today.cwday]
+    today = DateAndTime::Calculations::DAYS_INTO_WEEK.invert[Time.now.in_time_zone("Eastern Time (US & Canada)").beginning_of_day.to_date.cwday]
     parsed_schedules[today][:hours]
   end
 end
