@@ -21,7 +21,9 @@ csv.each do |row|
     state: row["state"],
     phone_1: row["phone_1"],
     postal_code: row["postal_code"],
-    url: row["url"]
+    url: row["url"],
+    typically_available: row["typically_available"],
+    recent_arrivals: row["recent_arrivals"]
   )
 
   food_pantry.phone_2 = row["phone_2"] if row["phone_2"]
