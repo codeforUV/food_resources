@@ -2,12 +2,12 @@ class FoodPantriesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
 
   def index
-    if params[:filter]
-      if params[:filter] == "now"
-        @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_now? }
-      elsif params[:filter] == "today"
-        @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_today? }
-      end
+    if params[:filter] == "now"
+      @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_now? }
+    elsif params[:filter] == "today"
+      @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_today? }
+    elsif params[:lat] && params[:lon]
+      @food_pantries = FoodPantry.near([params[:lat], params[:lon]]).order(:distance)
     elsif params[:search]
       sanitized_search_param = ActiveRecord::Base.sanitize_sql_like(params[:search])
       @food_pantries = FoodPantry.where("typically_available ILIKE ?", "%#{sanitized_search_param}%").or(FoodPantry.where("recent_arrivals ILIKE ?", "%#{sanitized_search_param}%"))

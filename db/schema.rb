@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_023955) do
+ActiveRecord::Schema.define(version: 2022_02_07_024838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2022_02_05_023955) do
     t.string "notes"
     t.jsonb "schedules", default: []
     t.string "recent_arrivals"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.index ["latitude", "longitude"], name: "index_food_pantries_on_latitude_and_longitude"
     t.index ["user_id"], name: "index_food_pantries_on_user_id"
   end
 

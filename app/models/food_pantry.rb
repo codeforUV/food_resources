@@ -1,4 +1,7 @@
 class FoodPantry < ApplicationRecord
+  geocoded_by :full_address
+  after_validation :geocode, if: Proc.new { |fp| fp.address_changed? || fp.town_changed? || fp.state_changed? || fp.postal_code_changed? }
+
   belongs_to :user
 
   validates :name, presence: true
@@ -6,6 +9,10 @@ class FoodPantry < ApplicationRecord
   validates :town, presence: true
   validates :state, presence: true
   validates :postal_code, presence: true
+
+  def full_address
+    "#{address}, #{town}, #{state}, #{postal_code}"
+  end
 
   def formatted_schedule
     parsed_schedules.map do |day, schedule|
