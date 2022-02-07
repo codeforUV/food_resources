@@ -1,8 +1,8 @@
 <div class="flex mb-6 pl-4 sm:pl-0">
   <div class="relative flex items-center">
-    <% form_with url: food_pantries_path, method: :get, class: "relative flex items-center" do |form| %>
-      <%= form.search_field :search, params[:search], placeholder: "Search for items e.g, bread", required: true, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mr-4" %>
-      <%= form.submit "Search", class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>
+    <%= form_tag food_pantries_path, method: :get, class: "relative flex items-center" do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Search for items e.g, bread", required: true, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mr-4" %>
+      <%= submit_tag "Search", class: "cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>
     <% end %>
   </div>
 </div>
