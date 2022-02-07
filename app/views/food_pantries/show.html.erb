@@ -43,7 +43,7 @@
                       <tr>
                         <td class="whitespace-nowrap text-sm font-medium text-gray-900 pr-6"><%= day %></td>
                         <td class="whitespace-nowrap text-sm text-gray-500"><%= hours %></td>
-                        <% if @food_pantry.open_now? %>
+                        <% if day.downcase.include?(DateAndTime::Calculations::DAYS_INTO_WEEK.invert[Time.now.in_time_zone("Eastern Time (US & Canada)").strftime("%w").to_i].to_s) && @food_pantry.open_now?  %>
                           <td class="whitespace-nowrap text-sm font-medium text-green-600 pl-6">Open now</td>
                         <% end %>
                       </tr>
