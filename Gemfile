@@ -26,6 +26,7 @@ gem "propshaft"
 
 gem "tailwindcss-rails"
 
+gem "geocoder"
 gem "ice_cube"
 
 # Reduces boot times through caching; required in config/boot.rb
