@@ -8,6 +8,9 @@ class FoodPantriesController < ApplicationController
       elsif params[:filter] == "today"
         @food_pantries = FoodPantry.all.select { |food_pantry| food_pantry.open_today? }
       end
+    elsif params[:search]
+      sanitized_search_param = ActiveRecord::Base.sanitize_sql_like(params[:search])
+      @food_pantries = FoodPantry.where("typically_available ILIKE ?", "%#{sanitized_search_param}%").or(FoodPantry.where("recent_arrivals ILIKE ?", "%#{sanitized_search_param}%"))
     else
       @food_pantries = FoodPantry.all
     end
