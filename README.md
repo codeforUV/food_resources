@@ -10,16 +10,19 @@ Code for UV is a [Code for America](https://www.codeforamerica.org/) Brigade bas
 This is assuming that you are running this on a Mac. If you are on a Windows machine, you may want to first install WSL2 (Windows Subsystem for Linux 2), and then you should be able to follow these steps.
 
 ### Prerequisites
+- [PostgreSQL](https://www.postgresql.org/) 13
+  - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@13`
 - [Ruby](https://ruby-doc.org/) 3.1.0
   -  Recommend installing via [rbenv](https://github.com/rbenv/rbenv#installation)
 - [Bundler](https://bundler.io/) 2.2.3: `gem install bundler`
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
   - Check your current version: `gem --version`
   - If needed, update version: `gem update --system`
-- [PostgreSQL](https://www.postgresql.org/) 13
-  - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@13`
 
 ### Running the app locally
+- Set your database username as an environment variable if different from `postgres`:
+  - Create .env file from .env.example: `cp .env.example .env`
+  - Update file to specify your database username, e.g.: `DATABASE_USERNAME=yourusername`
 - Install Ruby dependencies: `bundle install`
 - Setup database: `bin/rails db:setup`
 - Start server: `bin/rails s`
