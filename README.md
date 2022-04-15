@@ -12,7 +12,7 @@ This is assuming that you are running this on a Mac. If you are on a Windows mac
 ### Prerequisites
 - [PostgreSQL](https://www.postgresql.org/) 14
   - Recommend installing via [homebrew](https://brew.sh/): `brew install postgresql@14`
-- [Ruby](https://ruby-doc.org/) 3.1.1
+- [Ruby](https://ruby-doc.org/) 3.1.2
   -  Recommend installing via [rbenv](https://github.com/rbenv/rbenv#installation)
 - [Bundler](https://bundler.io/) 2.3.11: `gem install bundler`
 - [RubyGems](https://rubygems.org/pages/download) 2.5.0 or higher
